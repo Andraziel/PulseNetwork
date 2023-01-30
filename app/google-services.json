@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "18213201101",
+    "project_id": "pulsenetwork-d6541",
+    "storage_bucket": "pulsenetwork-d6541.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18213201101:android:6e064cb7185283e988b584",
+        "android_client_info": {
+          "package_name": "fr.isen.pulse.pulsenetwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18213201101-6gvc5tfj6n3auf6skrt0t9korbg4nb8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj3SYlpgaDOQ8O217riLEMTE011cYyzkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "18213201101-6gvc5tfj6n3auf6skrt0t9korbg4nb8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
