@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#FFBB86FC</color>
-    <color name="secondary">#FF6200EE</color>
-    <color name="tertiary">#FF3700B3</color>
-    <color name="option">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="primary">#191716</color>
+    <color name="secondary">#440D0F</color>
+    <color name="tertiary">#4D7EA8</color>
+    <color name="option">#4CE0B3</color>
+    <color name="suboption">#72E1D1</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
