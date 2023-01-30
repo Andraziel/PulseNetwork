@@ -13,28 +13,29 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		setContentView(R.layout.activity_main)
 
-        Firebase.database.getReference("message").addValueEventListener(object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val value = snapshot.getValue<String>()
-            Log.d("TAG","Value is: " + value)
-            findViewById<TextView>(R.id.textView).text = value
-            }
+		Firebase.database.getReference("message").addValueEventListener(object: ValueEventListener {
+			override fun onDataChange(snapshot: DataSnapshot) {
+				val value = snapshot.getValue<String>()
+				Log.d("TAG","Value is: " + value)
+				findViewById<TextView>(R.id.textView).text = value
+			}
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("TAG", "Failed to read value.", error.toException())
-            }
+			override fun onCancelled(error: DatabaseError) {
+				Log.w("TAG", "Failed to read value.", error.toException())
+			}
 
-        })
+		})
 
-        val button = findViewById<Button>(R.id.mainAction).setOnClickListener {
-            val database = Firebase.database
-            val myRef = database.getReference("message")
+		val button = findViewById<Button>(R.id.mainAction).setOnClickListener {
+			val database = Firebase.database
+			val myRef = database.getReference("message")
 
-            myRef.setValue("Hello, World!")
-        }
-    }
+			myRef.setValue("Hello, World!")
+		}
+	}
+
 }
