@@ -8,6 +8,7 @@
     android:background="@color/primary">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feedList"
         android:layout_width="409dp"
         android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonPost"
         android:layout_width="70dp"
         android:layout_height="0dp"
         android:layout_marginEnd="50dp"
