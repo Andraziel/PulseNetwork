@@ -37,6 +37,12 @@ class MainActivity : AppCompatActivity() {
 
 		})
 
+		binding.redir.setOnClickListener {
+			val intenti = Intent(this, SignUpActivity::class.java)
+			startActivity(intenti)
+
+		}
+
 		binding.sub.setOnClickListener {
 			val login= binding.id.text.toString()
 			val password= binding.mdp.text.toString()
@@ -48,6 +54,7 @@ class MainActivity : AppCompatActivity() {
 					Log.d("TAG", "signInWithEmail:success")
 					val user = authent.currentUser
 					val intent = Intent(this, FeedActivity::class.java)
+					startActivity(intent)
 					//updateUI(user)
 				} else {
 					Log.w("TAG", "signInWithEmail:failure", task.exception)
