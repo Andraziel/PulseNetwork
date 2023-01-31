@@ -7,4 +7,45 @@
     tools:context=".DetailActivity"
     android:background="@drawable/background_gradient">
 
+	<ImageView
+		android:id="@+id/imagePost"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHeight_max="300dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:srcCompat="@drawable/nophoto" />
+
+	<TextView
+		android:id="@+id/titrePost"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Larry Bambelle"
+		android:layout_marginLeft="30dp"
+		android:layout_marginTop="30dp"
+		android:textColor="@color/white"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/imagePost" />
+
+	<TextView
+		android:id="@+id/auteurPost"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Larry Bambelle"
+		android:layout_marginTop="30dp"
+		android:textColor="@color/white"
+
+		app:layout_constraintStart_toStartOf="@+id/titrePost"
+		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
+
+	<TextView
+		android:id="@+id/descriptionPost"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/lorem"
+		android:layout_marginTop="30dp"
+		android:textColor="@color/white"
+		app:layout_constraintStart_toStartOf="@+id/auteurPost"
+		app:layout_constraintTop_toBottomOf="@+id/auteurPost" />
 </androidx.constraintlayout.widget.ConstraintLayout>
