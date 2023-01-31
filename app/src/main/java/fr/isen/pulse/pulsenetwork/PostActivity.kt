@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.databinding.ActivityMainBinding
 import fr.isen.pulse.pulsenetwork.databinding.ActivityPostBinding
 
@@ -25,15 +26,18 @@ class PostActivity : AppCompatActivity() {
 		}
 
 		binding.validePost.setOnClickListener {
-			val image = binding.imagePost
+			val image = binding.imagePost.text.toString()
 			val titre = binding.titrePost.text.toString()
 			val description = binding.descriptionPost.text.toString()
 
+			val post = Post(description, null, image, titre, 0, 0, "auteur")
+
 			val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
 			val myRef = database.getReference("pulse/post")
-			myRef.push()
+			//myRef.push().setValue("Hello, World2!")
+			myRef.child("post").setValue(post)
 
-			myRef.push().setValue("Hello, World2!")
+			//myRef.push().setValue("Hello, World2!")
 			Log.w("-------------", "Value is: " + myRef)
 		}
 

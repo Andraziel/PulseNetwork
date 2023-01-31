@@ -26,7 +26,8 @@
 		android:layout_marginStart="30dp"
 		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
-		android:text="Titre du post"
+		android:hint="Titre du post"
+		android:textColorHint="@color/white"
 		android:textColor="@color/white"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/titre" />
@@ -37,13 +38,14 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
-		android:text="Image du post"
+		android:hint="Image du post"
+		android:textColorHint="@color/white"
 		android:textColor="@color/white"
 		app:layout_constraintStart_toStartOf="@+id/titrePost"
 		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
 
 	<EditText
-		android:id="@+id/editTextTextMultiLine"
+		android:id="@+id/descriptionPost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="40dp"
