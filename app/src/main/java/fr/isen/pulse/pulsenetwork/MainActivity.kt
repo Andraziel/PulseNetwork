@@ -4,10 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.get
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -29,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 			override fun onDataChange(snapshot: DataSnapshot) {
 				val value = snapshot.getValue<String>()
 				Log.d("TAG","Value is: " + value)
-				findViewById<TextView>(R.id.textView).text = value
+				findViewById<TextView>(R.id.redir).text = value
 			}
 
 			override fun onCancelled(error: DatabaseError) {

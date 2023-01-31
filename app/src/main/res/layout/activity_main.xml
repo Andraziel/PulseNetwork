@@ -5,106 +5,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/primary">
+    android:background="@drawable/background_gradient">
+
+
+<ImageView
+android:id="@+id/imageView4"
+android:layout_width="233dp"
+android:layout_height="135dp"
+android:layout_marginBottom="15dp"
+android:src="@drawable/pulse_logo"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/SignIn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:text="connection"
-        android:textColor="#FAF8F8"
-        android:textSize="28sp"
-        android:typeface="serif"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095" />
-
-    <Button
-        android:id="@+id/sub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="332dp"
-        android:text="se connecter"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Sign in"
         android:textColor="@color/white"
-        app:iconTint="@color/secondary"
+        android:textSize="38dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
-        android:id="@+id/mdp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
-        android:ems="10"
-        android:hint="mot de passe"
-        android:inputType="textPassword"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toTopOf="@+id/sub"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/redir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pas de compte ?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sub"
-        app:layout_constraintVertical_bias="0.155" />
-
-    <EditText
-        android:id="@+id/SuPassword"
+        android:id="@+id/SiEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginTop="40dp"
-        android:padding="20dp"
-        android:hint="Password"
-        android:drawableLeft="@drawable/baseline_key_24"
+        android:layout_marginTop="60dp"
+        android:drawableLeft="@drawable/baseline_person_24"
         android:drawablePadding="20dp"
-        android:inputType="textPassword"
+        android:hint="Email"
+        android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/SignIn" />
 
-    <Button
-        android:id="@+id/SuValidateButton"
+<EditText
+android:id="@+id/mdp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="10dp"
+android:layout_marginTop="40dp"
+android:padding="20dp"
+android:hint="Password"
+android:drawableLeft="@drawable/baseline_key_24"
+android:drawablePadding="20dp"
+android:inputType="textPassword"
+android:textColor="@color/white"
+android:textColorHint="@color/white"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="1.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/SiEmail" />
+
+
+<Button
+android:id="@+id/sub"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="40dp"
+android:layout_marginEnd="30dp"
+android:layout_marginBottom="30dp"
+android:backgroundTint="#1299D5"
+android:text="OK, let's go !"
+app:layout_constraintBottom_toTopOf="@+id/imageView4"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/mdp" />
+
+    <TextView
+        android:id="@+id/redir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="#1299D5"
-        android:text="OK, let's go !"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:text="New to Pulse ? Sign up here."
+        android:textColor="#FFFDFD"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/mdp"
+        app:layout_constraintTop_toBottomOf="@+id/mdp" />
 
-
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="233dp"
-        android:layout_height="135dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/pulse_logo"
-        app:layout_constraintTop_toBottomOf="@+id/SuValidateButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
