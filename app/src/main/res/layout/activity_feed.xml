@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FeedActivity"
-    android:background="@color/primary">
+    android:background="@drawable/background_gradient">
 
-    <androidx.recyclerview.widget.RecyclerView
+
+<androidx.recyclerview.widget.RecyclerView
         android:id="@+id/feedList"
         android:layout_width="409dp"
         android:layout_height="729dp"

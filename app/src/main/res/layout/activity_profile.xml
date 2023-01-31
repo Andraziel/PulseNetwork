@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
-    android:background="@color/primary">
+    android:background="@drawable/background_gradient">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
