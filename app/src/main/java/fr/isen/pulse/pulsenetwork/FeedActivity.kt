@@ -29,7 +29,8 @@ class FeedActivity : AppCompatActivity() {
 		val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
 		val myRef = database.getReference("pulse/post")
 		myRef.push().setValue("Hello, World2!")
-		Log.w("-------------", "Value is: " + myRef)*/
+		Log.w("-------------", "Value is: " + myRef)
+*/
 
 		Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts").addValueEventListener(object: ValueEventListener {
 			override fun onDataChange(snapshot: DataSnapshot) {
