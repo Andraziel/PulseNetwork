@@ -34,10 +34,11 @@ class PostActivity : AppCompatActivity() {
 
 			val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
 			val myRef = database.getReference("pulse/post")
-			//myRef.push().setValue("Hello, World2!")
-			myRef.child("post").setValue(post)
+			val id = myRef.push().key
+			id?.let {
+				myRef.child(it).setValue(post)
+			}
 
-			//myRef.push().setValue("Hello, World2!")
 			Log.w("-------------", "Value is: " + myRef)
 		}
 

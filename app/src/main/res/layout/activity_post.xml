@@ -23,12 +23,12 @@
 		android:id="@+id/titrePost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginStart="30dp"
 		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
 		android:hint="Titre du post"
-		android:textColorHint="@color/white"
 		android:textColor="@color/white"
+		android:textColorHint="@color/white"
+		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/titre" />
 
@@ -39,25 +39,32 @@
 		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
 		android:hint="Image du post"
-		android:textColorHint="@color/white"
 		android:textColor="@color/white"
-		app:layout_constraintStart_toStartOf="@+id/titrePost"
+		android:textColorHint="@color/white"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
 
 	<EditText
 		android:id="@+id/descriptionPost"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="40dp"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="100dp"
 		android:backgroundTint="@color/tertiary"
 		android:ems="10"
 		android:gravity="start|top"
 		android:hint="Description du post"
 		android:inputType="textMultiLine"
+		android:textAlignment="center"
 		android:textColor="@color/white"
 		android:textColorHint="@color/white"
-		app:layout_constraintStart_toStartOf="@+id/imagePost"
-		app:layout_constraintTop_toBottomOf="@+id/imagePost" />
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/imagePost"
+		app:layout_constraintVertical_bias="0.55" />
 
 	<Button
 		android:id="@+id/validePost"
