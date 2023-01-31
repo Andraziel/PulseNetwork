@@ -1,90 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PostActivity"
-    android:background="@drawable/background_gradient">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".PostActivity"
+	android:background="@drawable/background_gradient">
 
-<!--     titre "new post"-->
-    <TextView
-        android:id="@+id/titre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-<!---->
-<!--ajouter un titre-->
-    <Button
-        android:id="@+id/titrePost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pas de compte ?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sub"
-        app:layout_constraintVertical_bias="0.155" />
+	<TextView
+		android:id="@+id/titre"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:text="Nouveau post"
+		android:textColor="@color/white"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
 
-<!--    upload an image -->
+	<Button
+		android:id="@+id/titrePost"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="30dp"
+		android:text="Titre du post"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/titre" />
 
+	<Button
+		android:id="@+id/imagePost"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Image du post"
+		app:layout_constraintStart_toStartOf="@+id/titrePost"
+		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
 
-    <Button
-        android:id="@+id/imagePost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pas de compte ?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sub"
-        app:layout_constraintVertical_bias="0.155" />
+	<!--    description-->
 
-<!--    description-->
+	<Button
+		android:id="@+id/descriptionPost"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Description du post"
+		app:layout_constraintStart_toStartOf="@+id/imagePost"
+		app:layout_constraintTop_toBottomOf="@+id/imagePost" />
 
-    <Button
-        android:id="@+id/descriptionPost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pas de compte ?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sub"
-        app:layout_constraintVertical_bias="0.155" />
+	<Button
+		android:id="@+id/validePost"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="pas de compte ?"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.497"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/sub"
+		app:layout_constraintVertical_bias="0.155" />
 
-<!--    submit-->
-
-        <Button
-            android:id="@+id/validePost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pas de compte ?"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sub"
-            app:layout_constraintVertical_bias="0.155" />
-
-<!--    annuler le post-->
-    <Button
-        android:id="@+id/closePost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pas de compte ?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sub"
-        app:layout_constraintVertical_bias="0.155" />
+	<!--    annuler le post-->
+	<Button
+		android:id="@+id/closePost"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="pas de compte ?"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.497"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/sub"
+		app:layout_constraintVertical_bias="0.155" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
