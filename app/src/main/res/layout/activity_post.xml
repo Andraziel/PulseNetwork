@@ -29,6 +29,7 @@
 		android:hint="Titre du post"
 		android:textColor="@color/white"
 		android:textColorHint="@color/white"
+		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/titre" />
 
@@ -50,6 +51,7 @@
 		android:layout_height="0dp"
 		android:layout_margin="30dp"
 		android:layout_marginTop="40dp"
+		android:layout_marginBottom="40dp"
 		android:backgroundTint="@color/tertiary"
 		android:ems="10"
 		android:gravity="start|top"
@@ -60,29 +62,30 @@
 		android:textColor="@color/white"
 		android:textColorHint="@color/white"
 		app:layout_constraintBottom_toTopOf="@+id/closePost"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="@+id/imagePost"
+		app:layout_constraintEnd_toEndOf="@+id/titrePost"
+		app:layout_constraintStart_toStartOf="@+id/titrePost"
 		app:layout_constraintTop_toBottomOf="@+id/imagePost" />
 
 	<Button
 		android:id="@+id/closePost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_margin="40dp"
+		android:layout_marginStart="10dp"
+		android:layout_marginBottom="40dp"
 		android:backgroundTint="@color/suboption"
 		android:text="@string/annuler"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintStart_toStartOf="parent" />
+		app:layout_constraintStart_toStartOf="@+id/descriptionPost" />
 
 	<Button
 		android:id="@+id/validePost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginRight="40dp"
+		android:layout_marginEnd="10dp"
 		android:backgroundTint="@color/option"
 		android:text="@string/publier"
 		app:layout_constraintBottom_toBottomOf="@+id/closePost"
-		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintEnd_toEndOf="@+id/descriptionPost"
 		app:layout_constraintTop_toTopOf="@+id/closePost" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,102 +7,123 @@
     tools:context=".DetailActivity"
     android:background="@drawable/background_gradient">
 
-	<ImageView
-		android:id="@+id/imagePost"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHeight_max="300dp"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:srcCompat="@drawable/nophoto" />
 
-	<TextView
-		android:id="@+id/titrePost"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/lorem_ipsum"
-		android:textSize="25sp"
-		android:layout_marginStart="30dp"
-		android:layout_marginTop="30dp"
-		android:textColor="@color/white"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/imagePost" />
-
-	<TextView
-		android:id="@+id/auteurPost"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/larry_bambelle"
-		android:layout_marginTop="30dp"
-		android:textColor="@color/white"
-		app:layout_constraintStart_toStartOf="@+id/titrePost"
-		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
-
-	<TextView
-		android:id="@+id/descriptionPost"
+	<ScrollView
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/lorem"
-		android:layout_margin="30dp"
-		android:textColor="@color/white"
-		app:layout_constraintStart_toStartOf="@+id/auteurPost"
-		app:layout_constraintTop_toBottomOf="@+id/auteurPost"
-		android:justificationMode="inter_word" />
-
-	<Button
-		android:id="@+id/likePost"
-		android:layout_width="70dp"
-		android:layout_height="0dp"
-		android:layout_margin="30dp"
-		android:background="#00FFFFFF"
-		android:backgroundTint="#00FFFFFF"
-		android:padding="0dp"
-		app:icon="@drawable/activated_like"
-		app:iconSize="70dp"
+		android:layout_height="match_parent"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/descriptionPost"
-		app:layout_constraintVertical_bias="0.0" />
-
-	<TextView
-		android:id="@+id/nbLikes"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="60"
-		android:layout_margin="30dp"
-		android:textColor="@color/white"
-		android:textSize="25sp"
-		app:layout_constraintBottom_toBottomOf="@+id/likePost"
-		app:layout_constraintStart_toEndOf="@+id/likePost"
-		app:layout_constraintTop_toTopOf="@+id/likePost" />
-
-
-	<Button
-		android:id="@+id/dislikePost"
-		android:layout_width="70dp"
-		android:layout_height="0dp"
-		android:layout_marginEnd="28dp"
-		android:background="#00FFFFFF"
-		android:backgroundTint="#00FFFFFF"
-		android:padding="0dp"
-		android:rotationX="180"
-		app:icon="@drawable/activated_like"
-		app:iconSize="70dp"
-		app:layout_constraintBottom_toBottomOf="@+id/likePost"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintTop_toTopOf="@+id/likePost"
-		app:layout_constraintVertical_bias="0.0" />
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
 
-	<TextView
-		android:id="@+id/nbDislikes"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="20"
-		android:layout_marginEnd="30dp"
-		android:textColor="@color/white"
-		android:textSize="25sp"
-		app:layout_constraintBottom_toBottomOf="@+id/dislikePost"
-		app:layout_constraintEnd_toStartOf="@+id/dislikePost"
-		app:layout_constraintTop_toTopOf="@+id/dislikePost" />
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<ImageView
+				android:id="@+id/imagePost"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintHeight_max="300dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:srcCompat="@drawable/nophoto" />
+
+			<TextView
+				android:id="@+id/titrePost"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="30dp"
+				android:layout_marginTop="30dp"
+				android:text="@string/lorem_ipsum"
+				android:textColor="@color/white"
+				android:textSize="25sp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/imagePost" />
+
+			<TextView
+				android:id="@+id/auteurPost"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="30dp"
+				android:text="@string/larry_bambelle"
+				android:textColor="@color/white"
+				app:layout_constraintStart_toStartOf="@+id/titrePost"
+				app:layout_constraintTop_toBottomOf="@+id/titrePost" />
+
+			<TextView
+				android:id="@+id/descriptionPost"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="30dp"
+				android:justificationMode="inter_word"
+				android:text="@string/lorem"
+				android:textColor="@color/white"
+				app:layout_constraintStart_toStartOf="@+id/auteurPost"
+				app:layout_constraintTop_toBottomOf="@+id/auteurPost" />
+
+
+			<Button
+				android:id="@+id/likePost"
+				android:layout_width="70dp"
+				android:layout_height="0dp"
+				android:layout_margin="30dp"
+				android:background="#00FFFFFF"
+				android:backgroundTint="#00FFFFFF"
+				android:padding="0dp"
+				app:icon="@drawable/activated_like"
+				app:iconSize="70dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/descriptionPost"
+				app:layout_constraintVertical_bias="0.0"
+				tools:layout_editor_absoluteX="30dp" />
+
+			<TextView
+				android:id="@+id/nbLikes"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="30dp"
+				android:text="60"
+				android:textColor="@color/white"
+				android:textSize="25sp"
+				app:layout_constraintBottom_toBottomOf="@+id/likePost"
+				app:layout_constraintStart_toEndOf="@+id/likePost"
+				app:layout_constraintTop_toTopOf="@+id/likePost" />
+
+
+			<Button
+				android:id="@+id/dislikePost"
+				android:layout_width="70dp"
+				android:layout_height="0dp"
+				android:layout_marginEnd="28dp"
+				android:background="#00FFFFFF"
+				android:backgroundTint="#00FFFFFF"
+				android:padding="0dp"
+				android:rotationX="180"
+				app:icon="@drawable/activated_like"
+				app:iconSize="70dp"
+				app:layout_constraintBottom_toBottomOf="@+id/likePost"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="@+id/likePost"
+				app:layout_constraintVertical_bias="0.0" />
+
+			<TextView
+				android:id="@+id/nbDislikes"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="30dp"
+				android:text="20"
+				android:textColor="@color/white"
+				android:textSize="25sp"
+				app:layout_constraintBottom_toBottomOf="@+id/dislikePost"
+				app:layout_constraintEnd_toStartOf="@+id/dislikePost"
+				app:layout_constraintTop_toTopOf="@+id/dislikePost" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+	</ScrollView>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
