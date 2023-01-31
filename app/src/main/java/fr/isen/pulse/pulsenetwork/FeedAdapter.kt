@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.common.util.Strings
 import fr.isen.pulse.pulsenetwork.classes.Post
 
 class FeedAdapter(private var posts: ArrayList<Post>, val OnClick: (name: Post) -> Unit) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {

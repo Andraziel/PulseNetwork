@@ -35,16 +35,16 @@
                 app:srcCompat="@drawable/nophoto" />
 
             <TextView
-                android:id="@+id/likeView"
+                android:id="@+id/dislikeView"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginEnd="5dp"
-                android:text="{NbLike}"
+                android:text="{NbDislike}"
                 android:textColor="@color/option"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/dislikeView"
+                app:layout_constraintBottom_toBottomOf="@+id/likeView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/dislikeView" />
+                app:layout_constraintTop_toTopOf="@+id/likeView" />
 
             <TextView
                 android:id="@+id/titleView"
@@ -70,17 +70,17 @@
                 android:text="{Description}"
                 android:textColor="@color/option"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/dislikeView"
+                app:layout_constraintBottom_toTopOf="@+id/likeView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/titleView" />
 
             <TextView
-                android:id="@+id/dislikeView"
+                android:id="@+id/likeView"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="5dp"
-                android:text="{NbDislike}"
+                android:text="{NbLike}"
                 android:textAlignment="center"
                 android:textColor="@color/option"
                 android:textSize="20sp"

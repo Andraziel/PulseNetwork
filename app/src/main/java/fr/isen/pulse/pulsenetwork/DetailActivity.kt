@@ -26,7 +26,8 @@ class DetailActivity : AppCompatActivity() {
 		binding.auteurPost.text = post.auteur
 		binding.descriptionPost.text = post.description
 		binding.titrePost.text = post.titre
-
+		binding.nbLikes.text = post.like.toString()
+		binding.nbDislikes.text = post.dislike.toString()
 /*
 		binding.ivToggle?.setOnClickListener {
 			//fun onClick(view: View?) {
