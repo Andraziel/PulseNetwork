@@ -16,6 +16,12 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import fr.isen.pulse.pulsenetwork.classes.Post
+import fr.isen.pulse.pulsenetwork.classes.UserInfo
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.*
+
 class SignUpActivity : AppCompatActivity() {
 	private lateinit var binding: ActivitySignUpBinding
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +37,7 @@ class SignUpActivity : AppCompatActivity() {
 			val InputEmail = binding.SuEmail.text.toString()
 			val InputPassword = binding.SuPassword.text.toString()
 
+
 			val auth = FirebaseAuth.getInstance()
 
 			if(InputFirstname.isEmpty() || InputLastname.isEmpty() || InputEmail.isEmpty() || InputPassword.isEmpty()){
@@ -43,18 +50,16 @@ class SignUpActivity : AppCompatActivity() {
 							// Sign in SUCCESSFUL, we now add user's information
 							Log.w("FB", "User registration SUCCESSFUL")
 
-							val user = Firebase.auth.currentUser
-
-							val profileUpdates = userProfileChangeRequest {
-								displayName = "$InputFirstname $InputLastname"
+							//get UUID of user created and add in the database the uuid with firstname, lastname
+							val userUid = Firebase.auth.currentUser
+							Log.w("FB", "UUID is: ${userUid?.uid}")
+							val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
+							val myRef = database.getReference("pulse/posts")
+							val id = myRef.push().key
+							val userInfo = UserInfo(userUid?.uid, InputFirstname, InputLastname)
+							id?.let {
+								myRef.child(it).setValue(userInfo)
 							}
-
-							user!!.updateProfile(profileUpdates)
-								.addOnCompleteListener { task ->
-									if (task.isSuccessful) {
-										Log.d("FB", "User profile updated.")
-									}
-								}
 
 						} else {
 							//Log and print the error in typing
