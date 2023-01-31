@@ -54,7 +54,7 @@ class SignUpActivity : AppCompatActivity() {
 							val userUid = Firebase.auth.currentUser
 							Log.w("FB", "UUID is: ${userUid?.uid}")
 							val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
-							val myRef = database.getReference("pulse/posts")
+							val myRef = database.getReference("pulse/users")
 							val id = myRef.push().key
 							val userInfo = UserInfo(userUid?.uid, InputFirstname, InputLastname)
 							id?.let {
