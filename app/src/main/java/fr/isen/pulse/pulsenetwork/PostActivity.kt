@@ -33,8 +33,7 @@ class PostActivity : AppCompatActivity() {
 
 			val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
 			val myRef = database.getReference("pulse/posts")
-			//val id = myRef.push().key
-			val id = database.getReference("pulse/posts").push().key
+			val id = myRef.push().key
 			val post = Post(description, id, image, titre, 0, 0, "auteur")
 			id?.let {
 				myRef.child(it).setValue(post)
