@@ -7,85 +7,99 @@
 	android:background="@drawable/background_gradient"
 	tools:context=".PostActivity">
 
-	<TextView
-		android:id="@+id/titre"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="40dp"
-		android:text="Nouveau post"
-		android:textColor="@color/white"
-		android:textSize="30sp"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
-
-	<EditText
-		android:id="@+id/titrePost"
+	<ScrollView
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_margin="30dp"
-		android:layout_marginTop="40dp"
-		android:backgroundTint="@color/tertiary"
-		android:hint="Titre du post"
-		android:textColor="@color/white"
-		android:textColorHint="@color/white"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/titre" />
-
-	<EditText
-		android:id="@+id/imagePost"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="40dp"
-		android:backgroundTint="@color/tertiary"
-		android:hint="Image du post"
-		android:textColor="@color/white"
-		android:textColorHint="@color/white"
-		app:layout_constraintStart_toStartOf="@+id/titrePost"
-		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
-
-	<EditText
-		android:id="@+id/descriptionPost"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_margin="30dp"
-		android:layout_marginTop="40dp"
-		android:layout_marginBottom="40dp"
-		android:backgroundTint="@color/tertiary"
-		android:ems="10"
-		android:gravity="start|top"
-		android:hint="Description du post"
-		android:inputType="textMultiLine"
-		android:scrollbarAlwaysDrawVerticalTrack="true"
-		android:scrollbars="vertical"
-		android:textColor="@color/white"
-		android:textColorHint="@color/white"
-		app:layout_constraintBottom_toTopOf="@+id/closePost"
-		app:layout_constraintEnd_toEndOf="@+id/titrePost"
-		app:layout_constraintStart_toStartOf="@+id/titrePost"
-		app:layout_constraintTop_toBottomOf="@+id/imagePost" />
-
-	<Button
-		android:id="@+id/closePost"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="10dp"
-		android:layout_marginBottom="40dp"
-		android:backgroundTint="@color/suboption"
-		android:text="@string/annuler"
+		android:layout_height="match_parent"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintStart_toStartOf="@+id/descriptionPost" />
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
 
-	<Button
-		android:id="@+id/validePost"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginEnd="10dp"
-		android:backgroundTint="@color/option"
-		android:text="@string/publier"
-		app:layout_constraintBottom_toBottomOf="@+id/closePost"
-		app:layout_constraintEnd_toEndOf="@+id/descriptionPost"
-		app:layout_constraintTop_toTopOf="@+id/closePost" />
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<TextView
+				android:id="@+id/titre"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="40dp"
+				android:text="Nouveau post"
+				android:textColor="@color/white"
+				android:textSize="30sp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
+
+			<EditText
+				android:id="@+id/titrePost"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="30dp"
+				android:layout_marginTop="40dp"
+				android:backgroundTint="@color/tertiary"
+				android:hint="Titre du post"
+				android:textColor="@color/white"
+				android:textColorHint="@color/white"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+			<EditText
+				android:id="@+id/imagePost"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="40dp"
+				android:backgroundTint="@color/tertiary"
+				android:hint="Image du post"
+				android:textColor="@color/white"
+				android:textColorHint="@color/white"
+				app:layout_constraintStart_toStartOf="@+id/titrePost"
+				app:layout_constraintTop_toBottomOf="@+id/titrePost" />
+
+			<EditText
+				android:id="@+id/descriptionPost"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="30dp"
+				android:layout_marginTop="40dp"
+				android:backgroundTint="@color/tertiary"
+				android:ems="10"
+				android:gravity="start|top"
+				android:hint="Description du post"
+				android:inputType="textMultiLine"
+				android:scrollbarAlwaysDrawVerticalTrack="true"
+				android:scrollbars="vertical"
+				android:textColor="@color/white"
+				android:textColorHint="@color/white"
+				app:layout_constraintEnd_toEndOf="@+id/titrePost"
+				app:layout_constraintStart_toStartOf="@+id/titrePost"
+				app:layout_constraintTop_toBottomOf="@+id/imagePost" />
+
+			<Button
+				android:id="@+id/closePost"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="10dp"
+				android:backgroundTint="@color/suboption"
+				android:text="@string/annuler"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintStart_toStartOf="@+id/descriptionPost"
+				app:layout_constraintTop_toBottomOf="@+id/descriptionPost" />
+
+			<Button
+				android:id="@+id/validePost"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="10dp"
+				android:backgroundTint="@color/option"
+				android:text="@string/publier"
+				app:layout_constraintBottom_toBottomOf="@+id/closePost"
+				app:layout_constraintEnd_toEndOf="@+id/descriptionPost"
+				app:layout_constraintTop_toTopOf="@+id/closePost" />
+		</androidx.constraintlayout.widget.ConstraintLayout>
+	</ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
