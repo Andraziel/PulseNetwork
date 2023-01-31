@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        android:text="inscription"
+        android:text="connection"
         android:textColor="#FAF8F8"
         android:textSize="28sp"
         android:typeface="serif"
