@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -13,12 +15,15 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.databinding.ActivityFeedBinding
+import android.view.MenuItem
+
 
 class FeedActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityFeedBinding
 	private var value: ArrayList<Post> = arrayListOf<Post>()
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+
 		binding = ActivityFeedBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
@@ -78,5 +83,28 @@ class FeedActivity : AppCompatActivity() {
 
 
 
+	}
+	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+		val inflater = menuInflater
+		inflater.inflate(R.menu.menu, menu)
+		return true
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		when (item.itemId) {
+			R.id.actionPosts -> {
+				// Open FeedActivity
+				val intent = Intent(this, FeedActivity::class.java)
+				startActivity(intent)
+				return true
+			}
+			R.id.actionProfile -> {
+				// Open ProfileActivity
+				val intent = Intent(this, ProfileActivity::class.java)
+				startActivity(intent)
+				return true
+			}
+			else -> return super.onOptionsItemSelected(item)
+		}
 	}
 }

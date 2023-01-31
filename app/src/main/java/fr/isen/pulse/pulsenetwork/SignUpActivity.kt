@@ -1,5 +1,6 @@
 package fr.isen.pulse.pulsenetwork
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -47,9 +48,6 @@ class SignUpActivity : AppCompatActivity() {
 				auth.createUserWithEmailAndPassword(InputEmail, InputPassword)
 					.addOnCompleteListener(this) { task ->
 						if (task.isSuccessful) {
-							// Sign in SUCCESSFUL, we now add user's information
-							Log.w("FB", "User registration SUCCESSFUL")
-
 							//get UUID of user created and add in the database the uuid with firstname, lastname
 							val userUid = Firebase.auth.currentUser
 							Log.w("FB", "UUID is: ${userUid?.uid}")
@@ -60,6 +58,13 @@ class SignUpActivity : AppCompatActivity() {
 							id?.let {
 								myRef.child(it).setValue(userInfo)
 							}
+
+							// Sign in SUCCESSFUL, we now add user's information
+							Log.w("FB", "User registration SUCCESSFUL")
+
+							val intent = Intent(this, PostActivity::class.java)
+							startActivity(intent)
+
 
 						} else {
 							//Log and print the error in typing

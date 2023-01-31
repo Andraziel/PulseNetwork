@@ -1,0 +1,16 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/actionPosts"
+        android:icon="@drawable/baseline_newspaper_24"
+        android:title="Posts"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/actionProfile"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Profile"
+        app:showAsAction="always" />
+
+</menu>
