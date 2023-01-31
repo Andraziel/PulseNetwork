@@ -4,44 +4,56 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".PostActivity"
-	android:background="@drawable/background_gradient">
+	android:background="@drawable/background_gradient"
+	tools:context=".PostActivity">
 
 	<TextView
 		android:id="@+id/titre"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="30dp"
+		android:layout_marginTop="40dp"
 		android:text="Nouveau post"
 		android:textColor="@color/white"
+		android:textSize="30sp"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
 
-	<Button
+	<EditText
 		android:id="@+id/titrePost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="30dp"
+		android:layout_marginTop="40dp"
+		android:backgroundTint="@color/tertiary"
 		android:text="Titre du post"
+		android:textColor="@color/white"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/titre" />
 
-	<Button
+	<EditText
 		android:id="@+id/imagePost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginTop="40dp"
+		android:backgroundTint="@color/tertiary"
 		android:text="Image du post"
+		android:textColor="@color/white"
 		app:layout_constraintStart_toStartOf="@+id/titrePost"
 		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
 
-	<!--    description-->
-
-	<Button
-		android:id="@+id/descriptionPost"
+	<EditText
+		android:id="@+id/editTextTextMultiLine"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Description du post"
+		android:layout_marginTop="40dp"
+		android:backgroundTint="@color/tertiary"
+		android:ems="10"
+		android:gravity="start|top"
+		android:hint="Description du post"
+		android:inputType="textMultiLine"
+		android:textColor="@color/white"
+		android:textColorHint="@color/white"
 		app:layout_constraintStart_toStartOf="@+id/imagePost"
 		app:layout_constraintTop_toBottomOf="@+id/imagePost" />
 
@@ -49,25 +61,21 @@
 		android:id="@+id/validePost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="pas de compte ?"
-		app:layout_constraintBottom_toBottomOf="parent"
+		android:layout_marginEnd="40dp"
+		android:backgroundTint="@color/dark_green"
+		android:text="@string/publier"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.497"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/sub"
-		app:layout_constraintVertical_bias="0.155" />
+		app:layout_constraintTop_toTopOf="@+id/closePost" />
 
-	<!--    annuler le post-->
 	<Button
 		android:id="@+id/closePost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="pas de compte ?"
+		android:layout_margin="40dp"
+		android:backgroundTint="@color/dark_red"
+		android:text="@string/annuler"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.497"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/sub"
-		app:layout_constraintVertical_bias="0.155" />
+		app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

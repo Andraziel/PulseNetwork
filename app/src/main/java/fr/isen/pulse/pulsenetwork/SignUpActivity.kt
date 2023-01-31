@@ -33,35 +33,39 @@ class SignUpActivity : AppCompatActivity() {
 
 			val auth = FirebaseAuth.getInstance()
 
-			auth.createUserWithEmailAndPassword(InputEmail, InputPassword)
-				.addOnCompleteListener(this) { task ->
-					if (task.isSuccessful) {
-						// Sign in SUCCESSFUL, we now add user's information
-						Log.w("FB", "User registration SUCCESSFUL")
+			if(InputFirstname.isEmpty() || InputLastname.isEmpty() || InputEmail.isEmpty() || InputPassword.isEmpty()){
+				val toast = Toast.makeText(applicationContext,"Fields can not be empty ! You're crazy...",Toast.LENGTH_SHORT)
+				toast.show()
+			}else{
+				auth.createUserWithEmailAndPassword(InputEmail, InputPassword)
+					.addOnCompleteListener(this) { task ->
+						if (task.isSuccessful) {
+							// Sign in SUCCESSFUL, we now add user's information
+							Log.w("FB", "User registration SUCCESSFUL")
 
-						val user = Firebase.auth.currentUser
+							val user = Firebase.auth.currentUser
 
-						val profileUpdates = userProfileChangeRequest {
-							displayName = "$InputFirstname $InputLastname"
-						}
-
-						user!!.updateProfile(profileUpdates)
-							.addOnCompleteListener { task ->
-								if (task.isSuccessful) {
-									Log.d("FB", "User profile updated.")
-								}
+							val profileUpdates = userProfileChangeRequest {
+								displayName = "$InputFirstname $InputLastname"
 							}
 
-					} else {
-						Log.w("FB", "Authentication with FB: createUserWithEmailAndPassword ERROR")
-						val toast = Toast.makeText(
-							applicationContext,
-							"Error, please try again later!",
-							Toast.LENGTH_SHORT
-						)
-						toast.show()
+							user!!.updateProfile(profileUpdates)
+								.addOnCompleteListener { task ->
+									if (task.isSuccessful) {
+										Log.d("FB", "User profile updated.")
+									}
+								}
+
+						} else {
+							//Log and print the error in typing
+							val error = task.exception
+							Log.w("FB", "Error FB: ${error?.message}")
+							val toast = Toast.makeText(applicationContext,"Error: ${error?.message}",Toast.LENGTH_SHORT)
+							toast.show()
+						}
+
 					}
-				}
+			}
 
 		}
 	}
