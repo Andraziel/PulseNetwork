@@ -13,6 +13,8 @@ class FeedAdapter(private var posts: ArrayList<Post>, val OnClick: (name: Post) 
     class FeedViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val title = view.findViewById<TextView>(R.id.titleView)
         val description = view.findViewById<TextView>(R.id.descriptionView)
+        val like = view.findViewById<TextView>(R.id.likeView)
+        val dislike = view.findViewById<TextView>(R.id.dislikeView)
         val image = view.findViewById<ImageView>(R.id.imageView)
     }
 
@@ -28,6 +30,9 @@ class FeedAdapter(private var posts: ArrayList<Post>, val OnClick: (name: Post) 
 
         holder.title.text = post.titre
         holder.description.text = post.description
+        holder.like.text = post.like.toString()
+        holder.dislike.text = post.dislike.toString()
+        
 
         /*
         val image = post.image

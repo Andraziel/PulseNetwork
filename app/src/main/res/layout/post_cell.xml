@@ -54,6 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="{NbLike}"
+        android:textColor="@color/option"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/descriptionView" />
@@ -64,6 +66,9 @@
         android:layout_height="0dp"
         android:layout_marginEnd="10dp"
         android:text="{NbDislike}"
+        android:textAlignment="center"
+        android:textColor="@color/option"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/likeView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/likeView" />
