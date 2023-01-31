@@ -13,6 +13,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.databinding.ActivityFeedBinding
 
@@ -26,17 +27,33 @@ class FeedActivity : AppCompatActivity() {
 		val actionBar = supportActionBar
 		actionBar?.title = "Feed"
 
-		Firebase.database.getReference("posts").addValueEventListener(object: ValueEventListener {
+/*
+		val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
+		val myRef = database.getReference("pulse/post")
+		myRef.push().setValue("Hello, World2!")
+		Log.w("-------------", "Value is: " + myRef)*/
+
+		Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts").addValueEventListener(object: ValueEventListener {
 			override fun onDataChange(snapshot: DataSnapshot) {
-				val value = snapshot.child("posts").getValue<Post>()
-				Log.d("TAG", "Value is: " + value)
-				//findViewById<TextView>(R.id.).text = value.toString()
+
+
+				val value = arrayListOf<Post>()
+				for (postSnapshot in snapshot.children) {
+					postSnapshot.getValue<Post>()?.let {
+						value.add(it)
+					}
+				}
+
+
+				Log.w("TAGGGGG", "Value is: $value")
+
 			}
 
 			override fun onCancelled(error: DatabaseError) {
 				Log.w("TAG", "Failed to read value.", error.toException())
 			}
 		})
+
 
 
 		binding.buttonPost.setOnClickListener {// New Post
@@ -57,7 +74,6 @@ class FeedActivity : AppCompatActivity() {
 
 			startActivity(intent)
 		}
-
 
 	}
 }

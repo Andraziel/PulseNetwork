@@ -45,14 +45,14 @@ class MainActivity : AppCompatActivity() {
 
 		binding.sub.setOnClickListener {
 			val login= binding.id.text.toString()
-			Log.w("AAAAAAAAAAAAAAAAAAAAAAA", login)
+			Log.w("AAAA", login)
 			val password= binding.mdp.text.toString()
 			val authent = Firebase.auth
 			//baseutil.setValue(login)
 			//basemdp.setValue(password)
 			authent.signInWithEmailAndPassword(login, password).addOnCompleteListener(this) { task ->
 				if (task.isSuccessful) {
-					Log.d("TAG", "signInWithEmail:success")
+					Log.w("TAG", "signInWithEmail:success")
 					val user = authent.currentUser
 					val intent = Intent(this, FeedActivity::class.java)
 					startActivity(intent)
@@ -75,5 +75,6 @@ class MainActivity : AppCompatActivity() {
 			myRef.setValue("Hello, World!")
 		}*/
 	}
+
 
 }
