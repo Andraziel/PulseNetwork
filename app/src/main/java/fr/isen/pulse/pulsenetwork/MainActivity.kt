@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.get
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
@@ -50,19 +51,26 @@ class MainActivity : AppCompatActivity() {
 			val authent = Firebase.auth
 			//baseutil.setValue(login)
 			//basemdp.setValue(password)
-			authent.signInWithEmailAndPassword(login, password).addOnCompleteListener(this) { task ->
-				if (task.isSuccessful) {
-					Log.w("TAG", "signInWithEmail:success")
-					val user = authent.currentUser
-					val intent = Intent(this, FeedActivity::class.java)
-					startActivity(intent)
-					//updateUI(user)
-				} else {
-					Log.w("TAG", "signInWithEmail:failure", task.exception)
-					//Toast.makeText(baseContext, "Authentication failed.",
-					//Toast.LENGTH_SHORT).show()
-					//updateUI(null)
-				}
+			if(login.isEmpty() || password.isEmpty()){
+				val toast = Toast.makeText(applicationContext,"Fields can not be empty ! You're crazy...",
+					Toast.LENGTH_SHORT)
+				toast.show()
+			}else {
+				authent.signInWithEmailAndPassword(login, password)
+					.addOnCompleteListener(this) { task ->
+						if (task.isSuccessful) {
+							Log.w("TAG", "signInWithEmail:success")
+							val user = authent.currentUser
+							val intent = Intent(this, FeedActivity::class.java)
+							startActivity(intent)
+							//updateUI(user)
+						} else {
+							Log.w("TAG", "signInWithEmail:failure", task.exception)
+							//Toast.makeText(baseContext, "Authentication failed.",
+							//Toast.LENGTH_SHORT).show()
+							//updateUI(null)
+						}
+					}
 			}
 
 
