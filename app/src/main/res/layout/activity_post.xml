@@ -21,13 +21,13 @@
 
 	<EditText
 		android:id="@+id/titrePost"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginStart="30dp"
+		android:layout_margin="30dp"
 		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
-		android:text="Titre du post"
-		android:textColor="@color/white"
+		android:hint="Titre du post"
+		android:textColorHint="@color/white"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/titre" />
 
@@ -37,7 +37,8 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
-		android:text="Image du post"
+		android:hint="Image du post"
+		android:textColorHint="@color/white"
 		android:textColor="@color/white"
 		app:layout_constraintStart_toStartOf="@+id/titrePost"
 		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
@@ -46,7 +47,8 @@
 		android:id="@+id/descriptionPost"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="40dp"
+		android:layout_margin="30dp"
+		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
 		android:ems="10"
 		android:gravity="start|top"
