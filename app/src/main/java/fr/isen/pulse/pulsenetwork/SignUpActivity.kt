@@ -53,7 +53,7 @@ class SignUpActivity : AppCompatActivity() {
 							}
 
 					} else {
-						Log.w("FB", "Authentication with FB ERROR")
+						Log.w("FB", "Authentication with FB: createUserWithEmailAndPassword ERROR")
 						val toast = Toast.makeText(
 							applicationContext,
 							"Error, please try again later!",

@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.common.util.Strings
-import com.squareup.picasso.Picasso
+import fr.isen.pulse.pulsenetwork.classes.Post
 
-class FeedAdapter(private var posts: ArrayList<Strings>, val OnClick: (name: Strings) -> Unit) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
+class FeedAdapter(private var posts: ArrayList<Post>, val OnClick: (name: Post) -> Unit) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
     class FeedViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val title = view.findViewById<TextView>(R.id.titleView)
         val description = view.findViewById<TextView>(R.id.descriptionView)
@@ -26,8 +26,8 @@ class FeedAdapter(private var posts: ArrayList<Strings>, val OnClick: (name: Str
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         val post = posts[position]
 
-        holder.title.text = ""
-        holder.description.text = ""
+        holder.title.text = post.titre
+        holder.description.text = post.description
 
         /*
         val image = post.image
@@ -42,4 +42,8 @@ class FeedAdapter(private var posts: ArrayList<Strings>, val OnClick: (name: Str
 
     override fun getItemCount(): Int = posts.size
 
+    fun refresh(Newposts:ArrayList<Post>) {
+        posts = Newposts
+        notifyDataSetChanged()
+    }
 }
