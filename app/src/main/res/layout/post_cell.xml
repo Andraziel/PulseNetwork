@@ -30,11 +30,13 @@
     <TextView
         android:id="@+id/descriptionView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="5dp"
-        android:text="TextView"
+        android:layout_marginBottom="5dp"
+        android:text="{Description}"
         android:textColor="@color/option"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/likeView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/titleView" />
@@ -53,12 +55,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
         android:text="{NbLike}"
         android:textColor="@color/option"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionView" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/dislikeView"
