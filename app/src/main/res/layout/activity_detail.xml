@@ -21,8 +21,9 @@
 		android:id="@+id/titrePost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Larry Bambelle"
-		android:layout_marginLeft="30dp"
+		android:text="@string/lorem_ipsum"
+		android:textSize="25sp"
+		android:layout_marginStart="30dp"
 		android:layout_marginTop="30dp"
 		android:textColor="@color/white"
 		app:layout_constraintStart_toStartOf="parent"
@@ -32,20 +33,55 @@
 		android:id="@+id/auteurPost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Larry Bambelle"
+		android:text="@string/larry_bambelle"
 		android:layout_marginTop="30dp"
 		android:textColor="@color/white"
-
 		app:layout_constraintStart_toStartOf="@+id/titrePost"
 		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
 
 	<TextView
 		android:id="@+id/descriptionPost"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/lorem"
-		android:layout_marginTop="30dp"
+		android:layout_margin="30dp"
 		android:textColor="@color/white"
 		app:layout_constraintStart_toStartOf="@+id/auteurPost"
-		app:layout_constraintTop_toBottomOf="@+id/auteurPost" />
+		app:layout_constraintTop_toBottomOf="@+id/auteurPost"
+		android:justificationMode="inter_word" />
+
+
+	<Button
+		android:id="@+id/likePost"
+		android:layout_width="70dp"
+		android:layout_height="0dp"
+		android:layout_marginEnd="50dp"
+		android:layout_marginBottom="50dp"
+		android:background="#00FFFFFF"
+		android:backgroundTint="#00A84D58"
+		android:padding="0dp"
+		android:textAlignment="center"
+		android:textColorHighlight="#00FFFFFF"
+		android:textColorHint="#00FFFFFF"
+		android:textColorLink="#00FFFFFF"
+		app:icon="@drawable/activated_like"
+		app:iconSize="70dp"
+		app:iconTint="@color/option"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent" />
+
+	<ImageView
+		android:id="@+id/iv_toggle"
+		android:layout_width="280dp"
+		android:layout_height="177dp"
+		android:src="@drawable/selector_toggle_like_button" />
+<!--	<ToggleButton-->
+<!--		android:id="@+id/toggleButton"-->
+<!--		android:layout_width="wrap_content"-->
+<!--		android:layout_height="wrap_content"-->
+<!--		android:text="ToggleButton"-->
+<!--		tools:layout_editor_absoluteX="38dp"-->
+<!--		tools:layout_editor_absoluteY="645dp"-->
+<!--		tools:ignore="MissingConstraints" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
