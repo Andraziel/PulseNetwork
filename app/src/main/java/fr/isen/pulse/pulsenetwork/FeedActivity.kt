@@ -69,7 +69,7 @@ class FeedActivity : AppCompatActivity() {
 		binding.feedList.adapter = FeedAdapter(value) {
 			val intent = Intent(this, DetailActivity::class.java)
 
-			//intent.putExtra("post",it)
+			intent.putExtra("post",it)
 
 			startActivity(intent)
 		}

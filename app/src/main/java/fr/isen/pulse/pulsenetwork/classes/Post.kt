@@ -13,4 +13,4 @@ data class Post (
   @SerializedName("dislike"       ) var dislike       : Int? = null,
   @SerializedName("auteur"       ) var auteur       : String? = null
 
-)
+):java.io.Serializable
