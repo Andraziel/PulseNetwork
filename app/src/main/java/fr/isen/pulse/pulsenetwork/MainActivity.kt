@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 		}
 
 		binding.sub.setOnClickListener {
-			val login= binding.id.text.toString()
+			val login= binding.SiEmail.text.toString()
 			Log.w("AAAA", login)
 			val password= binding.mdp.text.toString()
 			val authent = Firebase.auth
