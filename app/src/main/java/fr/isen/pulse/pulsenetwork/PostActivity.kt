@@ -30,14 +30,18 @@ class PostActivity : AppCompatActivity() {
 			val titre = binding.titrePost.text.toString()
 			val description = binding.descriptionPost.text.toString()
 
-			val post = Post(description, null, image, titre, 0, 0, "auteur")
+
 
 			val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
-			val myRef = database.getReference("pulse/post")
+			val myRef = database.getReference("pulse/posts")
 			val id = myRef.push().key
+			val post = Post(description, id, image, titre, 0, 0, "auteur")
 			id?.let {
 				myRef.child(it).setValue(post)
 			}
+
+			val intent = Intent(this, FeedActivity::class.java)
+			startActivity(intent)
 
 			Log.w("-------------", "Value is: " + myRef)
 		}
