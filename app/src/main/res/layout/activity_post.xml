@@ -5,6 +5,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@drawable/background_gradient"
+	android:isScrollContainer="true"
 	tools:context=".PostActivity">
 
 	<TextView
@@ -27,8 +28,8 @@
 		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
 		android:hint="Titre du post"
-		android:textColorHint="@color/white"
 		android:textColor="@color/white"
+		android:textColorHint="@color/white"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/titre" />
 
@@ -39,15 +40,15 @@
 		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
 		android:hint="Image du post"
-		android:textColorHint="@color/white"
 		android:textColor="@color/white"
+		android:textColorHint="@color/white"
 		app:layout_constraintStart_toStartOf="@+id/titrePost"
 		app:layout_constraintTop_toBottomOf="@+id/titrePost" />
 
 	<EditText
 		android:id="@+id/descriptionPost"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="0dp"
 		android:layout_margin="30dp"
 		android:layout_marginTop="40dp"
 		android:backgroundTint="@color/tertiary"
@@ -55,8 +56,11 @@
 		android:gravity="start|top"
 		android:hint="Description du post"
 		android:inputType="textMultiLine"
+		android:scrollbarAlwaysDrawVerticalTrack="true"
+		android:scrollbars="vertical"
 		android:textColor="@color/white"
 		android:textColorHint="@color/white"
+		app:layout_constraintBottom_toTopOf="@+id/closePost"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="@+id/imagePost"
 		app:layout_constraintTop_toBottomOf="@+id/imagePost" />
@@ -75,9 +79,9 @@
 		android:id="@+id/validePost"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginRight="40dp"
 		android:backgroundTint="@color/option"
 		android:text="@string/publier"
-		android:layout_marginRight="40dp"
 		app:layout_constraintBottom_toBottomOf="@+id/closePost"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintTop_toTopOf="@+id/closePost" />
