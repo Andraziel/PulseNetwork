@@ -1,13 +1,12 @@
 package fr.isen.pulse.pulsenetwork
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import fr.isen.pulse.pulsenetwork.classes.Post
-import fr.isen.pulse.pulsenetwork.databinding.ActivityMainBinding
 import fr.isen.pulse.pulsenetwork.databinding.ActivityPostBinding
 
 class PostActivity : AppCompatActivity() {
@@ -34,7 +33,8 @@ class PostActivity : AppCompatActivity() {
 
 			val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
 			val myRef = database.getReference("pulse/posts")
-			val id = myRef.push().key
+			//val id = myRef.push().key
+			val id = database.getReference("pulse/posts").push().key
 			val post = Post(description, id, image, titre, 0, 0, "auteur")
 			id?.let {
 				myRef.child(it).setValue(post)
