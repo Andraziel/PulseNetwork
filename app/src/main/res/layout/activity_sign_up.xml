@@ -102,13 +102,13 @@
         app:layout_constraintTop_toBottomOf="@+id/SuEmail" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/SuValidateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="#15A8E9"
+        android:backgroundTint="#1299D5"
         android:text="OK, let's go !"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
