@@ -89,8 +89,10 @@
         android:layout_marginTop="30dp"
         android:clickable="true"
         android:text="New to Pulse ? Sign up 👌"
+        android:textAllCaps="false"
         android:textColor="#FDFCFC"
         android:textSize="16dp"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mdp" />
 
