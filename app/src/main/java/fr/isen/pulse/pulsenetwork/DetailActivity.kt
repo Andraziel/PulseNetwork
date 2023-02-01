@@ -53,7 +53,7 @@ class DetailActivity : AppCompatActivity() {
 		val toggle_like = binding.likePost
 		toggle_like.setOnCheckedChangeListener(object:View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 			override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
-				p0?.startAnimation(scaleAnimation) //To change body of created functions use File | Settings | File Templates.
+				p0?.startAnimation(scaleAnimation)
 				if (p1) {
 					// The toggle is enabled
 					binding.nbLikes.text = (binding.nbLikes.text.toString().toInt()?.plus(1)).toString()
@@ -65,7 +65,26 @@ class DetailActivity : AppCompatActivity() {
 			}
 
 			override fun onClick(p0: View?) {
-				TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+				TODO("not implemented")
+			}
+		})
+
+		val toggle_dislike = binding.dislikePost
+		toggle_dislike.setOnCheckedChangeListener(object:View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+			override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
+				p0?.startAnimation(scaleAnimation)
+				if (p1) {
+					// The toggle is enabled
+					binding.nbDislikes.text = (binding.nbDislikes.text.toString().toInt()?.plus(1)).toString()
+
+				} else {
+					// The toggle is disabled
+					binding.nbDislikes.text = (binding.nbDislikes.text.toString().toInt()?.minus(1)).toString()
+				}
+			}
+
+			override fun onClick(p0: View?) {
+				TODO("not implemented")
 			}
 		})
 

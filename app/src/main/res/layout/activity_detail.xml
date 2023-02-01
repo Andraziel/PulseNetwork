@@ -69,7 +69,7 @@
 				android:layout_height="30dp"
 
 				android:layout_marginStart="10dp"
-				android:background="@drawable/toggle_selector"
+				android:background="@drawable/toggle_selector_like"
 				android:checked="false"
 				android:text=""
 				android:textOff=""
@@ -92,17 +92,17 @@
 				app:layout_constraintTop_toTopOf="@+id/likePost" />
 
 
-			<Button
+			<ToggleButton
 				android:id="@+id/dislikePost"
 				android:layout_width="30dp"
-				android:layout_height="0dp"
+				android:layout_height="30dp"
+
 				android:layout_marginStart="10dp"
-				android:background="#00FFFFFF"
-				android:backgroundTint="#00FFFFFF"
-				android:padding="0dp"
-				android:rotationX="180"
-				app:icon="@drawable/activated_like"
-				app:iconSize="30dp"
+				android:background="@drawable/toggle_selector_dislike"
+				android:checked="false"
+				android:text=""
+				android:textOff=""
+				android:textOn=""
 				app:layout_constraintBottom_toBottomOf="@+id/likePost"
 				app:layout_constraintStart_toEndOf="@+id/nbDislikes"
 				app:layout_constraintTop_toTopOf="@+id/likePost"
@@ -126,7 +126,7 @@
 				android:id="@+id/toggleButton"
 				android:layout_width="160dp"
 				android:layout_height="160dp"
-				android:background="@drawable/toggle_selector"
+				android:background="@drawable/toggle_selector_like.xml"
 				android:checked="false"
 				android:text=""
 				android:textOff=""
