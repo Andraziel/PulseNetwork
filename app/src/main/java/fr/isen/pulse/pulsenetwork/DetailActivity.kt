@@ -10,20 +10,26 @@ import android.view.animation.ScaleAnimation
 import android.widget.CompoundButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.databinding.ActivityDetailBinding
 
 
 class DetailActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityDetailBinding
-
+	private lateinit var post: Post
 	var mIvToggle: ImageView? = null
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		binding = ActivityDetailBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
-		val post = intent.getSerializableExtra("post") as Post
+		val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
+		val myRef = database.getReference("pulse/posts")
+
+
+		post = intent.getSerializableExtra("post") as Post
 
 		val actionBar = supportActionBar
 		actionBar?.title = post?.titre
@@ -57,6 +63,7 @@ class DetailActivity : AppCompatActivity() {
 				if (p1) {
 					// The toggle is enabled
 					binding.nbLikes.text = (binding.nbLikes.text.toString().toInt()?.plus(1)).toString()
+
 
 				} else {
 					// The toggle is disabled
@@ -105,5 +112,12 @@ class DetailActivity : AppCompatActivity() {
 
 
 
+	}
+
+	override fun onDestroy() {
+		super.onDestroy()
+		val link = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts/${post.id}")
+		link.child("like").setValue(binding.nbLikes.text.toString().toInt())
+		link.child("dislike").setValue(binding.nbDislikes.text.toString().toInt())
 	}
 }
