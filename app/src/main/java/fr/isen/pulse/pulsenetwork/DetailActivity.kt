@@ -49,7 +49,7 @@ class DetailActivity : AppCompatActivity() {
 		var bounceInterpolator = BounceInterpolator()
 		scaleAnimation?.setInterpolator(bounceInterpolator)
 
-		// Toggle Button Code
+		// Toggle Button Like
 		val toggle_like = binding.likePost
 		toggle_like.setOnCheckedChangeListener(object:View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 			override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
@@ -69,6 +69,7 @@ class DetailActivity : AppCompatActivity() {
 			}
 		})
 
+		// Toggle Button Dislike
 		val toggle_dislike = binding.dislikePost
 		toggle_dislike.setOnCheckedChangeListener(object:View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 			override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
