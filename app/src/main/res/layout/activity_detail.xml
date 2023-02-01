@@ -59,22 +59,21 @@
 				android:justificationMode="inter_word"
 				android:text="@string/lorem"
 				android:textColor="@color/white"
-				app:layout_constraintBottom_toBottomOf="parent"
 				app:layout_constraintStart_toStartOf="@+id/auteurPost"
 				app:layout_constraintTop_toBottomOf="@+id/auteurPost" />
 
 
-			<Button
+			<ToggleButton
 				android:id="@+id/likePost"
 				android:layout_width="30dp"
-				android:layout_height="wrap_content"
+				android:layout_height="30dp"
 
 				android:layout_marginStart="10dp"
-				android:background="#00FFFFFF"
-				android:backgroundTint="#00FFFFFF"
-				android:padding="0dp"
-				app:icon="@drawable/activated_like"
-				app:iconSize="30dp"
+				android:background="@drawable/toggle_selector"
+				android:checked="false"
+				android:text=""
+				android:textOff=""
+				android:textOn=""
 				app:layout_constraintBottom_toBottomOf="@+id/titrePost"
 				app:layout_constraintStart_toEndOf="@+id/titrePost"
 				app:layout_constraintTop_toTopOf="@+id/titrePost"
@@ -107,7 +106,9 @@
 				app:layout_constraintBottom_toBottomOf="@+id/likePost"
 				app:layout_constraintStart_toEndOf="@+id/nbDislikes"
 				app:layout_constraintTop_toTopOf="@+id/likePost"
-				app:layout_constraintVertical_bias="0.0" />
+				app:layout_constraintVertical_bias="0.0"
+
+				/>
 
 			<TextView
 				android:id="@+id/nbDislikes"
@@ -120,6 +121,22 @@
 				app:layout_constraintBottom_toBottomOf="@+id/dislikePost"
 				app:layout_constraintStart_toEndOf="@+id/nbLikes"
 				app:layout_constraintTop_toTopOf="@+id/dislikePost" />
+
+			<!--<ToggleButton
+				android:id="@+id/toggleButton"
+				android:layout_width="160dp"
+				android:layout_height="160dp"
+				android:background="@drawable/toggle_selector"
+				android:checked="false"
+				android:text=""
+				android:textOff=""
+				android:textOn=""
+
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintHorizontal_bias="0.498"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/descriptionPost" />-->
 
 		</androidx.constraintlayout.widget.ConstraintLayout>
 
