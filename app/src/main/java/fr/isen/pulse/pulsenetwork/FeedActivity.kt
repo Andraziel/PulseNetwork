@@ -16,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.databinding.ActivityFeedBinding
 import android.view.MenuItem
+import com.google.android.material.snackbar.Snackbar
 
 
 class FeedActivity : AppCompatActivity() {
@@ -62,7 +63,13 @@ class FeedActivity : AppCompatActivity() {
 
 
 
-		binding.buttonPost.setOnClickListener {// New Post
+		/*binding.buttonPost.setOnClickListener {// New Post
+			val intent = Intent(this, PostActivity::class.java)
+
+			startActivity(intent)
+		}*/
+
+		binding.floatingActionButton.setOnClickListener { view ->
 			val intent = Intent(this, PostActivity::class.java)
 
 			startActivity(intent)
