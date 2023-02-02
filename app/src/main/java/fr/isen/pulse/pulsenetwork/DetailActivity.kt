@@ -24,10 +24,6 @@ import kotlinx.coroutines.flow.toList
 class DetailActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityDetailBinding
 	private lateinit var post: Post
-	private var initLikeInd: Boolean = true
-	private var initDisikeInd: Boolean = true
-	private var likeInd: Boolean = false  // Indicateur de like de l'utilisateur sur le post
-	private var dislikeInd: Boolean = false // Indicateur de dislike de l'utilisateur sur le post
 
 	private val uid = FirebaseAuth.getInstance().currentUser?.uid
 
@@ -38,9 +34,11 @@ class DetailActivity : AppCompatActivity() {
 
 		post = intent.getSerializableExtra("post") as Post
 
+		// modification of the action bar
 		val actionBar = supportActionBar
 		actionBar?.title = post?.titre
 
+		// Modification of the elements on the front
 		binding.auteurPost.text = post.auteur
 		binding.descriptionPost.text = post.description
 		binding.titrePost.text = post.titre
@@ -62,7 +60,8 @@ class DetailActivity : AppCompatActivity() {
 		var bounceInterpolator = BounceInterpolator()
 		scaleAnimation?.setInterpolator(bounceInterpolator)
 
-		val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts/${post.id}/likes")
+		// Create ref to database
+		val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts/${post.id}")
 
 		// Toggle Button Like
 		val toggle_like = binding.likePost
@@ -70,13 +69,18 @@ class DetailActivity : AppCompatActivity() {
 		val toggle_dislike = binding.dislikePost
 
 
-
+		// Listener to know the state of the toggles buttons
 		database.addListenerForSingleValueEvent(object: ValueEventListener {
 			override fun onDataChange(snapshot: DataSnapshot) {
 
-				val listChilds = snapshot.getValue<ArrayList<String>>()?.contains(uid)
-				if (listChilds != null) {
-					toggle_like.setChecked(listChilds)
+				val listChildsLike = snapshot.child("likes").getValue<ArrayList<String>>()?.contains(uid)
+				if (listChildsLike != null) {
+					toggle_like.setChecked(listChildsLike)
+				}
+
+				val listChildsDislike = snapshot.child("dislikes").getValue<ArrayList<String>>()?.contains(uid)
+				if (listChildsDislike != null) {
+					toggle_dislike.setChecked(listChildsDislike)
 				}
 
 				val link = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts/${post.id}")
