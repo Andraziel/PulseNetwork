@@ -42,7 +42,6 @@ class FeedActivity : AppCompatActivity() {
 			override fun onDataChange(snapshot: DataSnapshot) {
 
 
-				//value = arrayListOf<Post>()
 				for (postSnapshot in snapshot.children) {
 					postSnapshot.getValue<Post>()?.let {
 						value.add(it)
