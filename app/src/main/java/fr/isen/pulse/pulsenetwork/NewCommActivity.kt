@@ -20,6 +20,7 @@ import fr.isen.pulse.pulsenetwork.databinding.ActivityPostBinding
 class NewCommActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewCommBinding
     private lateinit var idPost: String
+    private lateinit var post: Post
     private val uid = FirebaseAuth.getInstance().currentUser?.uid
     private lateinit var fullName: String
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,11 +28,16 @@ class NewCommActivity : AppCompatActivity() {
         binding = ActivityNewCommBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        idPost = intent.getStringExtra("idPost") as String
+        post = intent.getSerializableExtra("post") as Post
+
+        idPost = post.id.toString()
 
         // Initiate the listener for the close button
         binding.closeCommentaire.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
+
+            intent.putExtra("post",post)
+
             startActivity(intent)
         }
 
@@ -60,6 +66,9 @@ class NewCommActivity : AppCompatActivity() {
             }
 
             val intent = Intent(this, DetailActivity::class.java)
+
+            intent.putExtra("post",post)
+
             startActivity(intent)
         }
     }

@@ -58,7 +58,7 @@ class DetailActivity : AppCompatActivity() {
 		binding.addCommButton.setOnClickListener { view ->
 			val intent = Intent(this, NewCommActivity::class.java)
 
-			intent.putExtra("idPost",post.id)
+			intent.putExtra("post",post)
 
 			startActivity(intent)
 		}
