@@ -54,6 +54,13 @@ class DetailActivity : AppCompatActivity() {
 		binding.commentaireList.layoutManager = LinearLayoutManager(this)
 		binding.commentaireList.adapter = CommAdapter(value)
 
+		// Initiate the listener for the FAB
+		binding.addCommButton.setOnClickListener { view ->
+			val intent = Intent(this, PostActivity::class.java)
+
+			startActivity(intent)
+		}
+
 		// Animation for toggle button
 		var scaleAnimation = ScaleAnimation(
 			0.7f,

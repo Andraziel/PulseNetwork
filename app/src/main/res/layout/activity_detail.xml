@@ -142,6 +142,21 @@
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toBottomOf="@+id/sectionCommentaire" />
 
+			<com.google.android.material.floatingactionbutton.FloatingActionButton
+				android:id="@+id/addCommButton"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="50dp"
+				android:layout_marginBottom="50dp"
+				android:clickable="true"
+				app:backgroundTint="@color/option"
+				app:fabSize="auto"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:maxImageSize="30dp"
+				app:srcCompat="@android:drawable/ic_menu_edit"
+				tools:layout_editor_absoluteY="642dp" />
+
 		</androidx.constraintlayout.widget.ConstraintLayout>
 
 	</ScrollView>
