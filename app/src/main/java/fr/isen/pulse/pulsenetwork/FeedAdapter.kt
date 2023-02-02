@@ -10,8 +10,8 @@ import fr.isen.pulse.pulsenetwork.classes.Post
 
 class FeedAdapter(private var posts: ArrayList<Post>, val OnClick: (name: Post) -> Unit) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
     class FeedViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        val title = view.findViewById<TextView>(R.id.titleView)
-        val description = view.findViewById<TextView>(R.id.descriptionView)
+        val title = view.findViewById<TextView>(R.id.auteurView)
+        val description = view.findViewById<TextView>(R.id.commentaireView)
         val like = view.findViewById<TextView>(R.id.likeView)
         val dislike = view.findViewById<TextView>(R.id.dislikeView)
         val image = view.findViewById<ImageView>(R.id.imageView)

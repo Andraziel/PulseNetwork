@@ -37,7 +37,7 @@
 				android:layout_marginTop="30dp"
 				android:text="@string/lorem_ipsum"
 				android:textColor="@color/white"
-				android:textSize="25sp"
+				android:textSize="34sp"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toBottomOf="@+id/imagePost" />
 
@@ -122,21 +122,24 @@
 				app:layout_constraintStart_toEndOf="@+id/nbLikes"
 				app:layout_constraintTop_toTopOf="@+id/dislikePost" />
 
-			<!--<ToggleButton
-				android:id="@+id/toggleButton"
-				android:layout_width="160dp"
-				android:layout_height="160dp"
-				android:background="@drawable/toggle_selector_like.xml"
-				android:checked="false"
-				android:text=""
-				android:textOff=""
-				android:textOn=""
+			<TextView
+				android:id="@+id/sectionCommentaire"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/commentaires"
+				android:textColor="@color/white"
+				android:textSize="30sp"
+				android:textStyle="bold|italic"
+				app:layout_constraintStart_toStartOf="@+id/titrePost"
+				app:layout_constraintTop_toBottomOf="@+id/descriptionPost" />
 
-				app:layout_constraintBottom_toBottomOf="parent"
+			<androidx.recyclerview.widget.RecyclerView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintHorizontal_bias="0.498"
 				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/descriptionPost" />-->
+				app:layout_constraintTop_toBottomOf="@+id/sectionCommentaire" />
 
 		</androidx.constraintlayout.widget.ConstraintLayout>
 

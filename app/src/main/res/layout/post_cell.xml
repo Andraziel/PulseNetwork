@@ -47,7 +47,7 @@
                 app:layout_constraintTop_toTopOf="@+id/likeView" />
 
             <TextView
-                android:id="@+id/titleView"
+                android:id="@+id/auteurView"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="5dp"
@@ -62,7 +62,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/descriptionView"
+                android:id="@+id/commentaireView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="5dp"
@@ -74,7 +74,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/likeView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/titleView" />
+                app:layout_constraintTop_toBottomOf="@+id/auteurView" />
 
 
             <TextView
@@ -103,7 +103,7 @@
                 android:layout_width="29dp"
                 android:layout_height="27dp"
                 app:layout_constraintBottom_toBottomOf="@+id/dislikeView"
-                app:layout_constraintEnd_toEndOf="@+id/descriptionView"
+                app:layout_constraintEnd_toEndOf="@+id/commentaireView"
                 app:layout_constraintTop_toTopOf="@+id/dislikeView"
                 app:srcCompat="@drawable/activated_dislike" />
         </androidx.constraintlayout.widget.ConstraintLayout>
