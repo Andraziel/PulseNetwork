@@ -1,6 +1,7 @@
 package fr.isen.pulse.pulsenetwork
 
 import android.R
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,12 +11,14 @@ import android.view.animation.ScaleAnimation
 import android.widget.CompoundButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.database.ktx.snapshots
 import com.google.firebase.ktx.Firebase
+import fr.isen.pulse.pulsenetwork.classes.Commentaire
 import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.databinding.ActivityDetailBinding
 import kotlinx.coroutines.flow.toList
@@ -23,6 +26,7 @@ import kotlinx.coroutines.flow.toList
 
 class DetailActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityDetailBinding
+	private var value: ArrayList<Commentaire> = arrayListOf<Commentaire>()
 	private lateinit var post: Post
 
 	private val uid = FirebaseAuth.getInstance().currentUser?.uid
@@ -45,6 +49,11 @@ class DetailActivity : AppCompatActivity() {
 		binding.nbLikes.text = post.like.toString()
 		binding.nbDislikes.text = post.dislike.toString()
 
+
+		// Initialisation of the commentaries
+		binding.commentaireList.layoutManager = LinearLayoutManager(this)
+		binding.commentaireList.adapter = CommAdapter(value)
+
 		// Animation for toggle button
 		var scaleAnimation = ScaleAnimation(
 			0.7f,
@@ -62,12 +71,33 @@ class DetailActivity : AppCompatActivity() {
 
 		// Create ref to database
 		val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts/${post.id}")
-
 		// Toggle Button Like
 		val toggle_like = binding.likePost
 		// Toggle Button Dislike
 		val toggle_dislike = binding.dislikePost
 
+
+		// Getting the commentaries from the database
+		database.child("commentaries").addValueEventListener(object: ValueEventListener {
+			override fun onDataChange(snapshot: DataSnapshot) {
+
+				for (postSnapshot in snapshot.children) {
+					postSnapshot.getValue<Commentaire>()?.let {
+						value.add(it)
+					}
+				}
+				val adapter = binding.commentaireList.adapter as CommAdapter
+
+				adapter.refresh(value)
+
+				Log.w("TAGGGGG", "Value is: $value")
+
+			}
+
+			override fun onCancelled(error: DatabaseError) {
+				Log.w("TAG", "Failed to read value.", error.toException())
+			}
+		})
 
 		// Listener to know the state of the toggles buttons
 		database.addListenerForSingleValueEvent(object: ValueEventListener {
