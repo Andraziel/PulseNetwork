@@ -56,7 +56,9 @@ class DetailActivity : AppCompatActivity() {
 
 		// Initiate the listener for the FAB
 		binding.addCommButton.setOnClickListener { view ->
-			val intent = Intent(this, PostActivity::class.java)
+			val intent = Intent(this, NewCommActivity::class.java)
+
+			intent.putExtra("idPost",post.id)
 
 			startActivity(intent)
 		}
