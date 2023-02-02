@@ -45,7 +45,7 @@
 				android:id="@+id/auteurPost"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="30dp"
+				android:layout_marginTop="20dp"
 				android:text="@string/larry_bambelle"
 				android:textColor="@color/white"
 				app:layout_constraintStart_toStartOf="@+id/titrePost"
@@ -60,7 +60,7 @@
 				android:text="@string/lorem"
 				android:textColor="@color/white"
 				app:layout_constraintStart_toStartOf="@+id/auteurPost"
-				app:layout_constraintTop_toBottomOf="@+id/auteurPost" />
+				app:layout_constraintTop_toBottomOf="@+id/likePost" />
 
 
 			<ToggleButton
@@ -68,21 +68,20 @@
 				android:layout_width="30dp"
 				android:layout_height="30dp"
 
-				android:layout_marginStart="10dp"
+				android:layout_marginTop="20dp"
 				android:background="@drawable/toggle_selector_like"
 				android:checked="false"
 				android:text=""
 				android:textOff=""
 				android:textOn=""
-				app:layout_constraintBottom_toBottomOf="@+id/titrePost"
-				app:layout_constraintStart_toEndOf="@+id/titrePost"
-				app:layout_constraintTop_toTopOf="@+id/titrePost"
+				app:layout_constraintStart_toStartOf="@+id/auteurPost"
+				app:layout_constraintTop_toBottomOf="@+id/auteurPost"
 				tools:ignore="MissingConstraints" />
 
 			<TextView
 				android:id="@+id/nbLikes"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
+				android:layout_height="0dp"
 				android:layout_marginStart="10dp"
 				android:text="60"
 				android:textColor="@color/white"
@@ -113,7 +112,7 @@
 			<TextView
 				android:id="@+id/nbDislikes"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
+				android:layout_height="0dp"
 				android:layout_marginStart="20dp"
 				android:text="20"
 				android:textColor="@color/white"
