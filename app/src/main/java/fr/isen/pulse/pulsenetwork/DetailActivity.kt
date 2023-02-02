@@ -154,11 +154,11 @@ class DetailActivity : AppCompatActivity() {
 					?: return Transaction.success(mutableData)
 
 				if (p.likes?.contains(uid) == true) {
-					// Unstar the post and remove self from stars
+					// Unlike the post and remove self from likes
 					p.like = p.like?.minus(1)
 					p.likes?.remove(uid)
 				} else {
-					// Star the post and add self to stars
+					// Like the post and add self to likes
 					p.like = p.like?.plus(1)
 					if (uid != null) {
 						p.likes?.add(uid)
@@ -176,7 +176,6 @@ class DetailActivity : AppCompatActivity() {
 				currentData: DataSnapshot?
 			) {
 				// Transaction completed
-				//Log.d("TAG", "postTransaction:onComplete:" + databaseError!!)
 			}
 		})
 	}
@@ -188,11 +187,11 @@ class DetailActivity : AppCompatActivity() {
 					?: return Transaction.success(mutableData)
 
 				if (p.dislikes?.contains(uid) == true) {
-					// Unstar the post and remove self from stars
+					// Unlike the post and remove self from likes
 					p.dislike = p.dislike?.minus(1)
 					p.dislikes?.remove(uid)
 				} else {
-					// Star the post and add self to stars
+					// Like the post and add self to likes
 					p.dislike = p.dislike?.plus(1)
 					if (uid != null) {
 						p.dislikes?.add(uid)
@@ -210,7 +209,6 @@ class DetailActivity : AppCompatActivity() {
 				currentData: DataSnapshot?
 			) {
 				// Transaction completed
-				//Log.d("TAG", "postTransaction:onComplete:" + databaseError!!)
 			}
 		})
 	}
