@@ -60,14 +60,6 @@ class FeedActivity : AppCompatActivity() {
 			}
 		})
 
-
-
-		/*binding.buttonPost.setOnClickListener {// New Post
-			val intent = Intent(this, PostActivity::class.java)
-
-			startActivity(intent)
-		}*/
-
 		binding.floatingActionButton.setOnClickListener { view ->
 			val intent = Intent(this, PostActivity::class.java)
 

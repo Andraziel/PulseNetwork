@@ -13,6 +13,7 @@ data class Post (
   @SerializedName("dislike"       ) var dislike       : Int? = null,
   @SerializedName("auteur"       ) var auteur       : String? = null,
   @SerializedName("likes"       ) var likes       : ArrayList<String>? = arrayListOf(),
-  @SerializedName("likes"       ) var dislikes       : ArrayList<String>? = arrayListOf()
+  @SerializedName("dislikes"       ) var dislikes       : ArrayList<String>? = arrayListOf(),
+  @SerializedName("commentaires"       ) var commentaires       : ArrayList<Commentaire>? = arrayListOf()
 
 ):java.io.Serializable

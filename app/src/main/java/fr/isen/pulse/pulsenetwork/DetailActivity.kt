@@ -175,16 +175,10 @@ class DetailActivity : AppCompatActivity() {
 		})
 
 
-
-
-
-
 		/*
 		val image = post.image
 		if (image != "") { if (image != null) { Picasso.get().load(image).into(binding.imagePost) }}
 		*/
-
-
 
 	}
 
