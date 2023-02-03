@@ -39,16 +39,13 @@ class MainActivity : AppCompatActivity() {
 		binding.redir.setOnClickListener {
 			val intenti = Intent(this, SignUpActivity::class.java)
 			startActivity(intenti)
-
 		}
 
 		binding.sub.setOnClickListener {
-			val login= binding.SiEmail.text.toString()
-			Log.w("AAAA", login)
+			val login= binding.emailInput.text.toString()
 			val password= binding.mdp.text.toString()
 			val authent = Firebase.auth
-			//baseutil.setValue(login)
-			//basemdp.setValue(password)
+
 			if(login.isEmpty() || password.isEmpty()){
 				val toast = Toast.makeText(applicationContext,"Fields can not be empty ! You're crazy...",
 					Toast.LENGTH_SHORT)

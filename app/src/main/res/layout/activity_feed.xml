@@ -30,13 +30,4 @@
         app:maxImageSize="50dp"
         app:srcCompat="@drawable/resource_new" />
 
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Feed"-->
-<!--        android:textColor="@color/option"-->
-<!--        android:textSize="30sp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>

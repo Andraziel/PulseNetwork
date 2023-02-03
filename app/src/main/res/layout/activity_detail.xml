@@ -105,9 +105,7 @@
 				app:layout_constraintBottom_toBottomOf="@+id/likePost"
 				app:layout_constraintStart_toEndOf="@+id/nbDislikes"
 				app:layout_constraintTop_toTopOf="@+id/likePost"
-				app:layout_constraintVertical_bias="0.0"
-
-				/>
+				app:layout_constraintVertical_bias="0.0" />
 
 			<TextView
 				android:id="@+id/nbDislikes"
