@@ -19,14 +19,25 @@ import fr.isen.pulse.pulsenetwork.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityProfileBinding
+	private val uid = FirebaseAuth.getInstance().currentUser?.uid
+	private lateinit var fullName: String
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_profile)
 		binding = ActivityProfileBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
-		/*val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
-		val ref = database.getReference("pulse/users")*/
+		// Getting the user name from the database
+		val link = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/users/$uid")
+		link.addListenerForSingleValueEvent(object: ValueEventListener {
+			override fun onDataChange(snapshot: DataSnapshot) {
+				val user = snapshot.getValue<UserInfo>()
+				fullName = user?.firstName + " " + user?.lastName
+			}
+			override fun onCancelled(error: DatabaseError) {
+				Log.w("TAG", "Failed to read value.", error.toException())
+			}
+		})
 
 		Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts").addValueEventListener(object:
 			ValueEventListener {
