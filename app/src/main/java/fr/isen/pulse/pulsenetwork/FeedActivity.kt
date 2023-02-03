@@ -34,8 +34,6 @@ class FeedActivity : AppCompatActivity() {
 
 		Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts").addValueEventListener(object: ValueEventListener {
 			override fun onDataChange(snapshot: DataSnapshot) {
-
-
 				for (postSnapshot in snapshot.children) {
 					postSnapshot.getValue<Post>()?.let {
 						value.add(it)
@@ -43,13 +41,9 @@ class FeedActivity : AppCompatActivity() {
 					}
 				}
 				val adapter = binding.feedList.adapter as FeedAdapter
-
 				adapter.refresh(value)
-
 				Log.w("TAGGGGG", "Value is: $value")
-
 			}
-
 			override fun onCancelled(error: DatabaseError) {
 				Log.w("TAG", "Failed to read value.", error.toException())
 			}
