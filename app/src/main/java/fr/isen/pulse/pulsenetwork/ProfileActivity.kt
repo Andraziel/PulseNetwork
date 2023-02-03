@@ -113,7 +113,6 @@ class ProfileActivity : AppCompatActivity() {
 
 		binding.profileChangeAvatar.setOnClickListener {
 			openGallery()
-			uploadImage()
 		}
 		displayed_image_post = findViewById(R.id.imageView10)
 	}
@@ -148,6 +147,7 @@ class ProfileActivity : AppCompatActivity() {
 		if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
 			selectedImageUri = data?.data
 			displayed_image_post.setImageURI(selectedImageUri)
+			uploadImage()
 		}
 	}
 
@@ -159,7 +159,7 @@ class ProfileActivity : AppCompatActivity() {
 				ref.downloadUrl.addOnSuccessListener { uri ->
 					url = uri.toString()
 					val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
-					database.getReference("pulse/users/$userId/image").setValue(url)
+					database.getReference("pulse/users/$userId").child("image").setValue(url)
 				}
 			}
 
