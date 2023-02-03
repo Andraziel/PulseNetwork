@@ -97,7 +97,6 @@ class PostActivity : AppCompatActivity() {
 
 		}
 
-
 	}
 
 
@@ -129,8 +128,7 @@ class PostActivity : AppCompatActivity() {
 					id?.let {
 						myRef.child(it).setValue(post)
 					}
-			}
-
+				}
 			}
 
 		}else{
