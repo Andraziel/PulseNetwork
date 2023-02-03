@@ -61,12 +61,9 @@ class MainActivity : AppCompatActivity() {
 							val user = authent.currentUser
 							val intent = Intent(this, FeedActivity::class.java)
 							startActivity(intent)
-							//updateUI(user)
 						} else {
 							Log.w("TAG", "signInWithEmail:failure", task.exception)
-							//Toast.makeText(baseContext, "Authentication failed.",
-							//Toast.LENGTH_SHORT).show()
-							//updateUI(null)
+
 						}
 					}
 			}
@@ -74,12 +71,6 @@ class MainActivity : AppCompatActivity() {
 
 		}
 
-		/*val button = findViewById<Button>(R.id.sub).setOnClickListener {
-			val database = Firebase.database
-			val myRef = database.getReference("message")
-
-			myRef.setValue("Hello, World!")
-		}*/
 	}
 
 

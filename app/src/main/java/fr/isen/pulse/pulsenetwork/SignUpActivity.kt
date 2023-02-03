@@ -54,7 +54,7 @@ class SignUpActivity : AppCompatActivity() {
 							val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
 							val myRef = database.getReference("pulse/users")
 							val id = userUid?.uid
-							val userInfo = UserInfo(userUid?.uid, InputFirstname, InputLastname)
+							val userInfo = UserInfo(userUid?.uid, InputFirstname, InputLastname, InputEmail)
 							id?.let {
 								myRef.child(it).setValue(userInfo)
 							}

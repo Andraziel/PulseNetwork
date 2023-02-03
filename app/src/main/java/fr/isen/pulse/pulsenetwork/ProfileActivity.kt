@@ -16,11 +16,18 @@ import com.google.firebase.ktx.Firebase
 import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.classes.UserInfo
 import fr.isen.pulse.pulsenetwork.databinding.ActivityProfileBinding
+import java.sql.Date
+import java.text.SimpleDateFormat
 
 class ProfileActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityProfileBinding
-	private val uid = FirebaseAuth.getInstance().currentUser?.uid
-	private lateinit var fullName: String
+	private val userId = FirebaseAuth.getInstance().currentUser?.uid
+	private val userMail = FirebaseAuth.getInstance().currentUser?.email
+	private val userSignupDate = FirebaseAuth.getInstance().currentUser?.metadata?.creationTimestamp
+	private lateinit var userFullName: String
+	private lateinit var schoolName: String
+
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_profile)
@@ -28,60 +35,42 @@ class ProfileActivity : AppCompatActivity() {
 		setContentView(binding.root)
 
 		// Getting the user name from the database
-		val link = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/users/$uid")
+		val link = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/users/$userId")
 		link.addListenerForSingleValueEvent(object: ValueEventListener {
 			override fun onDataChange(snapshot: DataSnapshot) {
 				val user = snapshot.getValue<UserInfo>()
-				fullName = user?.firstName + " " + user?.lastName
-			}
-			override fun onCancelled(error: DatabaseError) {
-				Log.w("TAG", "Failed to read value.", error.toException())
-			}
-		})
+				userFullName = user?.firstName + " " + user?.lastName
+				schoolName = "ISEN Toulon"
 
-		Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts").addValueEventListener(object:
-			ValueEventListener {
-			override fun onDataChange(ref: DataSnapshot) {
+				//Display name
+				binding.profileEmail.text = userMail
 
-				val auth = FirebaseAuth.getInstance()
-				val user = auth.currentUser
-				val userUid = user?.uid
+				//Display name
+				binding.profileName.text = userFullName
 
-				val mail = user?.email
-				if (userUid != null) {
-					ref.child(userUid).getValue<UserInfo>().let {
-						val prenom = it?.firstName
-						val nom = it?.lastName
-						binding.prenom.text = prenom.toString()
-						binding.nom.text = nom.toString()
+				//Display name of school
+				binding.profileSchool.text = schoolName
 
+				//Display date of sign up
+				val date = userSignupDate?.let { Date(it) }
+				val format = SimpleDateFormat("dd/MM/yyyy")
+				binding.profileSignupDate.text = format.format(date)
 
-					}
-				}
-
-				//myRef.child(it).setValue(post)
-				//postSnapshot.getValue<Post>()
-				/*
-				for (postSnapshot in snapshot.children) {
-					postSnapshot.getValue<Post>()?.let {
-						value.add(it)
-					}
-				}
-				 */
-
-
-				binding.mail.text = mail.toString()
 
 			}
 			override fun onCancelled(error: DatabaseError) {
-				Log.w("TAG", "Failed to read value.", error.toException())
+				Log.w("PN", "Failed to read value.", error.toException())
 			}
 		})
 
+		binding.profileLogOut.setOnClickListener {
+			//Signout
+			FirebaseAuth.getInstance().signOut()
 
-		binding.retour.setOnClickListener {
-			val intent = Intent(this, FeedActivity::class.java)
+			Log.w("PN", "Sign out")
+			val intent = Intent(this, SignUpActivity::class.java)
 			startActivity(intent)
+
 		}
 	}
 

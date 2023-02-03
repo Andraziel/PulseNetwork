@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -41,11 +41,11 @@
                     app:srcCompat="@drawable/ic_3" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/profileName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Theo Mignotte"
+                    android:text="First Lastname"
                     android:textColor="#FFFFFF"
                     android:textSize="25dp"
                     android:textStyle="bold"
@@ -54,16 +54,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/profileEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="first.lastname@gmail.com"
+                    android:text="N/A@gmail.com"
 
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    app:layout_constraintTop_toBottomOf="@+id/profileName" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -74,48 +74,46 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView15">
+                    app:layout_constraintTop_toBottomOf="@+id/profileEmail">
 
                     <Button
-                        android:id="@+id/button5"
+                        android:id="@+id/profileSchool"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/background_btn"
-                        android:drawableStart="@drawable/ic_1"
+                        android:drawableLeft="@drawable/baseline_school_24"
                         android:drawablePadding="20dp"
                         android:elevation="3dp"
                         android:paddingStart="20dp"
-                        android:text="+33 6 12 45 05 59"
+                        android:text="N/A"
                         android:textAlignment="viewStart"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/button4"
+                        android:id="@+id/profileSignupDate"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/background_btn"
-                        android:drawableStart="@drawable/ic_2"
+                        android:drawableLeft="@drawable/baseline_calendar_month_24"
                         android:drawablePadding="20dp"
                         android:elevation="3dp"
                         android:paddingStart="20dp"
-                        android:text="02/02/2022"
+                        android:text="N/A"
                         android:textAlignment="viewStart"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/profileResetPassword"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/background_btn"
-                        android:drawableStart="@drawable/ic_3"
+                        android:drawableLeft="@drawable/baseline_key_24"
                         android:drawablePadding="20dp"
                         android:elevation="3dp"
                         android:paddingStart="20dp"
@@ -125,16 +123,14 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/profileChangeAvatar"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/background_btn"
-                        android:drawableStart="@drawable/ic_4"
-                        android:drawableEnd="@drawable/circle_red"
-                        android:drawablePadding="20dp"
+                        android:drawableLeft="@drawable/baseline_add_a_photo_24"
 
+                        android:drawablePadding="20dp"
                         android:elevation="3dp"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
@@ -144,13 +140,12 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/profileLogOut"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/background_btn"
-                        android:drawableStart="@drawable/ic_5"
+                        android:drawableLeft="@android:drawable/ic_lock_idle_lock"
                         android:drawablePadding="20dp"
                         android:elevation="3dp"
                         android:paddingStart="20dp"
