@@ -22,9 +22,9 @@ class ChangeMailActivity : AppCompatActivity() {
 
 
 
-        val nouvmail = binding.nouv.text
+        val nouvmail = binding.newEmailInput.text
 
-        binding.change.setOnClickListener() {
+        binding.changeSaveButton.setOnClickListener() {
 
             user?.updateEmail(nouvmail.toString())
                 ?.addOnCompleteListener { task ->
