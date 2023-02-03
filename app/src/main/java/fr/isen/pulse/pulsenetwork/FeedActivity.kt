@@ -17,6 +17,7 @@ import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.databinding.ActivityFeedBinding
 import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
+import fr.isen.pulse.pulsenetwork.classes.Commentaire
 
 
 class FeedActivity : AppCompatActivity() {
@@ -31,13 +32,6 @@ class FeedActivity : AppCompatActivity() {
 		val actionBar = supportActionBar
 		actionBar?.title = "Feed"
 
-/*
-		val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
-		val myRef = database.getReference("pulse/post")
-		myRef.push().setValue("Hello, World2!")
-		Log.w("-------------", "Value is: " + myRef)
-*/
-
 		Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts").addValueEventListener(object: ValueEventListener {
 			override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -45,6 +39,7 @@ class FeedActivity : AppCompatActivity() {
 				for (postSnapshot in snapshot.children) {
 					postSnapshot.getValue<Post>()?.let {
 						value.add(it)
+						Log.w("GGGGGGGGGGGGGGGG", "Value is: $value")
 					}
 				}
 				val adapter = binding.feedList.adapter as FeedAdapter
