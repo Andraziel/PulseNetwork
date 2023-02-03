@@ -60,7 +60,8 @@ class NewCommActivity : AppCompatActivity() {
             val commentaire = binding.commentairePost.text.toString()
 
             val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
-            val myRef = database.getReference("pulse/posts/$idPost/commentaries")
+            val myRef = database.getReference("pulse/commentaries/$idPost")
+
             val id = myRef.push().key
             val comm = Commentaire(fullName,commentaire,id)
             id?.let {

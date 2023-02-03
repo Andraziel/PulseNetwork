@@ -81,7 +81,7 @@ class DetailActivity : AppCompatActivity() {
 		scaleAnimation?.setInterpolator(bounceInterpolator)
 
 		// Create ref to database
-		val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts/${post.id}")
+		val link = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/commentaries/${post.id}")
 		// Toggle Button Like
 		val toggle_like = binding.likePost
 		// Toggle Button Dislike
@@ -89,7 +89,7 @@ class DetailActivity : AppCompatActivity() {
 
 
 		// Getting the commentaries from the database
-		database.child("commentaries").addValueEventListener(object: ValueEventListener {
+		link.addValueEventListener(object: ValueEventListener {
 			override fun onDataChange(snapshot: DataSnapshot) {
 
 				for (postSnapshot in snapshot.children) {
@@ -109,6 +109,9 @@ class DetailActivity : AppCompatActivity() {
 				Log.w("TAG", "Failed to read value.", error.toException())
 			}
 		})
+
+		// ReCreate ref to database for posts
+		val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/posts/${post.id}")
 
 		// Listener to know the state of the toggles buttons
 		database.addListenerForSingleValueEvent(object: ValueEventListener {
