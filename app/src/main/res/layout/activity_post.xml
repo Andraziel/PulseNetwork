@@ -46,7 +46,7 @@
 				app:layout_constraintTop_toBottomOf="@+id/titre" />
 
 			<Button
-				android:id="@+id/imagePost"
+				android:id="@+id/selectImagePost"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="40dp"
@@ -75,7 +75,8 @@
 				android:textColorHint="@color/white"
 				app:layout_constraintEnd_toEndOf="@+id/titrePost"
 				app:layout_constraintStart_toStartOf="@+id/titrePost"
-				app:layout_constraintTop_toBottomOf="@+id/imagePost" />
+				app:layout_constraintTop_toBottomOf="@+id/selectImagePost" />
+
 
 			<Button
 				android:id="@+id/closePost"
@@ -98,6 +99,18 @@
 				app:layout_constraintBottom_toBottomOf="@+id/closePost"
 				app:layout_constraintEnd_toEndOf="@+id/descriptionPost"
 				app:layout_constraintTop_toTopOf="@+id/closePost" />
+
+			<ImageView
+				android:id="@+id/displayedImagePost"
+				android:layout_width="129dp"
+				android:layout_height="85dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				app:layout_constraintBottom_toBottomOf="@+id/selectImagePost"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toEndOf="@+id/selectImagePost"
+				app:layout_constraintTop_toTopOf="@+id/selectImagePost"
+				app:srcCompat="@drawable/nophoto" />
 
 		</androidx.constraintlayout.widget.ConstraintLayout>
 

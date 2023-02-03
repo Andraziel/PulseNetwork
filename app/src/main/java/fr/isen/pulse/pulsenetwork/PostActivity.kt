@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -23,6 +24,17 @@ class PostActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityPostBinding
 	private val uid = FirebaseAuth.getInstance().currentUser?.uid
 	private lateinit var fullName: String
+	private val IMAGE_PICK_CODE = 1000
+	private lateinit var displayed_image_post: ImageView
+
+
+	// Fonction pour ouvrir la galerie pour sélectionner une image
+	fun openGallery() {
+		val intent = Intent(Intent.ACTION_PICK)
+		intent.type = "image/*"
+		startActivityForResult(intent, IMAGE_PICK_CODE)
+	}
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_post)
@@ -38,33 +50,13 @@ class PostActivity : AppCompatActivity() {
 
 
 
+		val button: Button = findViewById(R.id.selectImagePost)
 
-
-
-
-		val IMAGE_PICK_CODE = 1000
-
-		// Fonction pour ouvrir la galerie pour sélectionner une image
-		fun openGallery() {
-			val intent = Intent(Intent.ACTION_PICK)
-			intent.type = "image/*"
-			startActivityForResult(intent, IMAGE_PICK_CODE)
-		}
-
-		// Gestion du résultat lorsque l'utilisateur sélectionne une image
-		fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-			if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-				val selectedImageUri = data?.data
-				// utilisez selectedImageUri pour accéder à l'image sélectionnée
-			}
-		}
-
-		val button: Button = findViewById(R.id.imagePost)
-// Lorsque l'utilisateur appuie sur le bouton
+		// Lorsque l'utilisateur appuie sur le bouton
 		button.setOnClickListener {
 			openGallery()
 		}
-
+		displayed_image_post = findViewById(R.id.displayedImagePost)
 
 
 
@@ -83,7 +75,7 @@ class PostActivity : AppCompatActivity() {
 		})
 
 		binding.validePost.setOnClickListener {
-			val image = binding.imagePost.text.toString()
+			val image = binding.displayedImagePost.toString()
 			val titre = binding.titrePost.text.toString()
 			val description = binding.descriptionPost.text.toString()
 
@@ -105,6 +97,38 @@ class PostActivity : AppCompatActivity() {
 
 
 	}
+
+
+
+
+
+
+
+
+
+	// Gestion du résultat lorsque l'utilisateur sélectionne une image
+	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+		if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+			val selectedImageUri = data?.data
+			displayed_image_post.setImageURI(selectedImageUri)
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 		val inflater = menuInflater
