@@ -51,7 +51,7 @@
         android:layout_marginTop="30dp"
         android:drawableLeft="@drawable/baseline_alternate_email_24"
         android:drawablePadding="20dp"
-        android:hint="Email"
+        android:hint="New Email"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -75,12 +75,12 @@
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_width="315dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:text="I agree to Pulse's data selling policy"
+        android:text="I agree to Pulse's data selling policy  "
+        android:textColor="#FFFEFE"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newEmailInput" />
