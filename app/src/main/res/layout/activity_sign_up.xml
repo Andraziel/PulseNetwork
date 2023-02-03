@@ -114,14 +114,27 @@
 
     <Spinner
         android:id="@+id/schoolSpinner"
-        android:layout_width="0dp"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        android:background="#A64CE0B3"
+        android:paddingLeft="5dp"
+        android:popupBackground="@color/option"
+        android:theme="@style/Spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SuPassword" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="24dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/schoolSpinner"
+        app:layout_constraintEnd_toStartOf="@+id/schoolSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SuPassword" />
+        app:layout_constraintTop_toTopOf="@+id/schoolSpinner"
+        app:srcCompat="@drawable/baseline_school_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

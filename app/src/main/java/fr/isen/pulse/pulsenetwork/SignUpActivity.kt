@@ -35,8 +35,9 @@ class SignUpActivity : AppCompatActivity() {
 		//Display list of schools
 		val schoolList = resources.getStringArray(R.array.schoolList)
 		val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, schoolList)
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+		adapter.setDropDownViewResource(R.layout.spinner)
 		binding.schoolSpinner.adapter = adapter
+
 
 
 		binding.SuValidateButton.setOnClickListener {
