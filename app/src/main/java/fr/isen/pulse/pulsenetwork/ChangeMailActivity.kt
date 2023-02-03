@@ -7,6 +7,7 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import fr.isen.pulse.pulsenetwork.databinding.ActivityChangeMailBinding
 
+
 class ChangeMailActivity : AppCompatActivity() {
     private val userId = FirebaseAuth.getInstance().currentUser?.uid
 
