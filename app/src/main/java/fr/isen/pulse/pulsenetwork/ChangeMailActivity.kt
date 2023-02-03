@@ -10,7 +10,7 @@ import fr.isen.pulse.pulsenetwork.databinding.ActivityChangeMailBinding
 class ChangeMailActivity : AppCompatActivity() {
     private val userId = FirebaseAuth.getInstance().currentUser?.uid
 
-    public lateinit var binding: ActivityChangeMailBinding
+    lateinit var binding: ActivityChangeMailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reset_mail)
@@ -21,9 +21,9 @@ class ChangeMailActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
 
 
-        val mail = binding.ancien.text
+
         val nouvmail = binding.nouveau.text
-        val conf = binding.nnouveau.text
+
         binding.change.setOnClickListener() {
 
             user?.updateEmail(nouvmail.toString())
