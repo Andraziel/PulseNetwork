@@ -4,6 +4,8 @@ import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.BounceInterpolator
@@ -248,6 +250,30 @@ class DetailActivity : AppCompatActivity() {
 				// Transaction completed
 			}
 		})
+	}
+
+	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+		val inflater = menuInflater
+		inflater.inflate(fr.isen.pulse.pulsenetwork.R.menu.menu, menu)
+		return true
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		when (item.itemId) {
+			fr.isen.pulse.pulsenetwork.R.id.actionPosts -> {
+				// Open FeedActivity
+				val intent = Intent(this, FeedActivity::class.java)
+				startActivity(intent)
+				return true
+			}
+			fr.isen.pulse.pulsenetwork.R.id.actionProfile -> {
+				// Open ProfileActivity
+				val intent = Intent(this, ProfileActivity::class.java)
+				startActivity(intent)
+				return true
+			}
+			else -> return super.onOptionsItemSelected(item)
+		}
 	}
 
 }
