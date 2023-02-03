@@ -27,7 +27,13 @@ class ProfileActivity : AppCompatActivity() {
 	private val userSignupDate = FirebaseAuth.getInstance().currentUser?.metadata?.creationTimestamp
 	private lateinit var userFullName: String
 	private lateinit var schoolName: String
+	private val IMAGE_PICK_CODE = 1000
 
+	fun openGallery() {
+		val intent = Intent(Intent.ACTION_PICK)
+		intent.type = "image/*"
+		startActivityForResult(intent, IMAGE_PICK_CODE)
+	}
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -73,11 +79,13 @@ class ProfileActivity : AppCompatActivity() {
 		binding.profileLogOut.setOnClickListener {
 			//Signout
 			FirebaseAuth.getInstance().signOut()
-
 			Log.w("PN", "Sign out")
 			val intent = Intent(this, MainActivity::class.java)
 			startActivity(intent)
+		}
 
+		binding.profileChangeAvatar.setOnClickListener {
+			openGallery()
 		}
 	}
 

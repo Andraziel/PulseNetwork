@@ -119,8 +119,6 @@ class PostActivity : AppCompatActivity() {
 					val titre = binding.titrePost.text.toString()
 					val description = binding.descriptionPost.text.toString()
 
-
-
 					val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
 					val myRef = database.getReference("pulse/posts")
 					val id = myRef.push().key
