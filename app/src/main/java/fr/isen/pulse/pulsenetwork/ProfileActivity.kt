@@ -43,7 +43,7 @@ class ProfileActivity : AppCompatActivity() {
 				userFullName = user?.firstName + " " + user?.lastName
 				schoolName = user?.schoolName.toString()
 
-				//Display name
+				//Display email
 				binding.profileEmail.text = userMail
 
 				//Display name
