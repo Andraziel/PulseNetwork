@@ -2,6 +2,7 @@ package fr.isen.pulse.pulsenetwork
 
 import android.R
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -14,12 +15,18 @@ import android.widget.CompoundButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.database.ktx.snapshots
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.storage
+import com.squareup.picasso.Picasso
 import fr.isen.pulse.pulsenetwork.classes.Commentaire
 import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.databinding.ActivityDetailBinding
@@ -30,6 +37,8 @@ class DetailActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityDetailBinding
 	private var value: ArrayList<Commentaire> = arrayListOf<Commentaire>()
 	private lateinit var post: Post
+	private lateinit var firebaseStore: FirebaseStorage
+	private lateinit var storageReference: StorageReference
 
 	private val uid = FirebaseAuth.getInstance().currentUser?.uid
 
@@ -37,6 +46,10 @@ class DetailActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		binding = ActivityDetailBinding.inflate(layoutInflater)
 		setContentView(binding.root)
+
+		// Initialize Firebase Storage variables
+		firebaseStore = FirebaseStorage.getInstance()
+		storageReference = Firebase.storage.reference
 
 		post = intent.getSerializableExtra("post") as Post
 
@@ -51,7 +64,9 @@ class DetailActivity : AppCompatActivity() {
 		binding.nbLikes.text = post.like.toString()
 		binding.nbDislikes.text = post.dislike.toString()
 
+		val image = binding.selectImagePost
 
+		if (post.image != "") { if (image != null) {Picasso.get().load(post.image).into(binding.selectImagePost) }}
 		// Initialisation of the commentaries
 		binding.commentaireList.layoutManager = LinearLayoutManager(this)
 		binding.commentaireList.adapter = CommAdapter(value)
@@ -254,6 +269,7 @@ class DetailActivity : AppCompatActivity() {
 			}
 		})
 	}
+
 
 	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 		val inflater = menuInflater

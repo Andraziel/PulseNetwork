@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import fr.isen.pulse.pulsenetwork.classes.Post
 
 class FeedAdapter(private var posts: ArrayList<Post>, val OnClick: (name: Post) -> Unit) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
@@ -31,12 +32,11 @@ class FeedAdapter(private var posts: ArrayList<Post>, val OnClick: (name: Post) 
         holder.description.text = post.description
         holder.like.text = post.like.toString()
         holder.dislike.text = post.dislike.toString()
-        
 
-        /*
         val image = post.image
-        if (image != "") { Picasso.get().load(image).into(holder.image) }
-        */
+        if (image!= "") { if (image != null) {
+            Picasso.get().load(image).into(holder.image) }}
+
 
         holder.itemView.setOnClickListener {
             OnClick(post)
