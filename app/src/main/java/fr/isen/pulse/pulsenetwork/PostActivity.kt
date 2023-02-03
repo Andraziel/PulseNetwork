@@ -1,10 +1,12 @@
 package fr.isen.pulse.pulsenetwork
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -33,6 +35,40 @@ class PostActivity : AppCompatActivity() {
 			val intent = Intent(this, FeedActivity::class.java)
 			startActivity(intent)
 		}
+
+
+
+
+
+
+
+		val IMAGE_PICK_CODE = 1000
+
+		// Fonction pour ouvrir la galerie pour sélectionner une image
+		fun openGallery() {
+			val intent = Intent(Intent.ACTION_PICK)
+			intent.type = "image/*"
+			startActivityForResult(intent, IMAGE_PICK_CODE)
+		}
+
+		// Gestion du résultat lorsque l'utilisateur sélectionne une image
+		fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+			if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+				val selectedImageUri = data?.data
+				// utilisez selectedImageUri pour accéder à l'image sélectionnée
+			}
+		}
+
+		val button: Button = findViewById(R.id.imagePost)
+// Lorsque l'utilisateur appuie sur le bouton
+		button.setOnClickListener {
+			openGallery()
+		}
+
+
+
+
+
 
 		// Getting the user name from the database
 		val link = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app").getReference("pulse/users/$uid")

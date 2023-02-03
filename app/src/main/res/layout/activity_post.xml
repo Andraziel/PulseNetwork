@@ -45,15 +45,16 @@
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toBottomOf="@+id/titre" />
 
-			<EditText
+			<Button
 				android:id="@+id/imagePost"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="40dp"
-				android:backgroundTint="@color/tertiary"
-				android:hint="Image du post"
+				android:text="Choisir une image"
 				android:textColor="@color/white"
-				android:textColorHint="@color/white"
+				android:backgroundTint="@color/tertiary"
+				tools:layout_editor_absoluteX="251dp"
+				tools:layout_editor_absoluteY="209dp"
 				app:layout_constraintStart_toStartOf="@+id/titrePost"
 				app:layout_constraintTop_toBottomOf="@+id/titrePost" />
 
@@ -97,9 +98,9 @@
 				app:layout_constraintBottom_toBottomOf="@+id/closePost"
 				app:layout_constraintEnd_toEndOf="@+id/descriptionPost"
 				app:layout_constraintTop_toTopOf="@+id/closePost" />
+
 		</androidx.constraintlayout.widget.ConstraintLayout>
+
 	</ScrollView>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
