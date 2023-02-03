@@ -42,19 +42,21 @@ class SignUpActivity : AppCompatActivity() {
 
 		binding.SuValidateButton.setOnClickListener {
 			//Get all the field user has typed
-			val InputFirstname = binding.SuFirstname.text.toString()
-			val InputLastname = binding.SuLastname.text.toString()
-			val InputEmail = binding.SuEmail.text.toString()
-			val InputPassword = binding.SuPassword.text.toString()
+			val inputFirstname = binding.SuFirstname.text.toString()
+			val inputLastname = binding.SuLastname.text.toString()
+			val inputSchoolName = binding.schoolSpinner.selectedItem.toString()
+
+			val inputEmail = binding.SuEmail.text.toString()
+			val inputPassword = binding.SuPassword.text.toString()
 
 
 			val auth = FirebaseAuth.getInstance()
 
-			if(InputFirstname.isEmpty() || InputLastname.isEmpty() || InputEmail.isEmpty() || InputPassword.isEmpty()){
+			if(inputFirstname.isEmpty() || inputLastname.isEmpty() || inputEmail.isEmpty() || inputPassword.isEmpty()){
 				val toast = Toast.makeText(applicationContext,"Fields can not be empty ! You're crazy...",Toast.LENGTH_SHORT)
 				toast.show()
 			}else{
-				auth.createUserWithEmailAndPassword(InputEmail, InputPassword)
+				auth.createUserWithEmailAndPassword(inputEmail, inputPassword)
 					.addOnCompleteListener(this) { task ->
 						if (task.isSuccessful) {
 							//get UUID of user created and add in the database the uuid with firstname, lastname
@@ -63,7 +65,7 @@ class SignUpActivity : AppCompatActivity() {
 							val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
 							val myRef = database.getReference("pulse/users")
 							val id = userUid?.uid
-							val userInfo = UserInfo(userUid?.uid, InputFirstname, InputLastname, InputEmail)
+							val userInfo = UserInfo(userUid?.uid, inputFirstname, inputLastname, inputSchoolName)
 							id?.let {
 								myRef.child(it).setValue(userInfo)
 							}

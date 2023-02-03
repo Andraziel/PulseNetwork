@@ -107,17 +107,17 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/profileResetPassword"
+                        android:id="@+id/profileChangeEmail"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/background_btn"
-                        android:drawableLeft="@drawable/baseline_key_24"
+                        android:drawableLeft="@drawable/baseline_alternate_email_24"
                         android:drawablePadding="20dp"
                         android:elevation="3dp"
                         android:paddingStart="20dp"
-                        android:text="Reset password"
+                        android:text="Change email"
                         android:textAlignment="viewStart"
                         android:textSize="18sp"
                         android:textStyle="bold" />

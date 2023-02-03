@@ -41,7 +41,7 @@ class ProfileActivity : AppCompatActivity() {
 			override fun onDataChange(snapshot: DataSnapshot) {
 				val user = snapshot.getValue<UserInfo>()
 				userFullName = user?.firstName + " " + user?.lastName
-				schoolName = "ISEN Toulon"
+				schoolName = user?.schoolName.toString()
 
 				//Display name
 				binding.profileEmail.text = userMail
@@ -64,9 +64,9 @@ class ProfileActivity : AppCompatActivity() {
 			}
 		})
 
-		binding.profileResetPassword.setOnClickListener(){
+		binding.profileChangeEmail.setOnClickListener(){
 			//Reset password
-			val intent = Intent(this, resetMdp::class.java)
+			val intent = Intent(this, resetMailActivity::class.java)
 			startActivity(intent)
 		}
 
