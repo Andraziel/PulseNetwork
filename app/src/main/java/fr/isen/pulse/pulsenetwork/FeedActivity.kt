@@ -84,18 +84,12 @@ class FeedActivity : AppCompatActivity() {
 	}
 	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 		val inflater = menuInflater
-		inflater.inflate(R.menu.menu, menu)
+		inflater.inflate(R.menu.menulight, menu)
 		return true
 	}
 
 	override fun onOptionsItemSelected(item: MenuItem): Boolean {
 		when (item.itemId) {
-			R.id.actionPosts -> {
-				// Open FeedActivity
-				val intent = Intent(this, FeedActivity::class.java)
-				startActivity(intent)
-				return true
-			}
 			R.id.actionProfile -> {
 				// Open ProfileActivity
 				val intent = Intent(this, ProfileActivity::class.java)

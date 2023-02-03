@@ -3,6 +3,8 @@ package fr.isen.pulse.pulsenetwork
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -66,5 +68,29 @@ class PostActivity : AppCompatActivity() {
 		}
 
 
+	}
+
+	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+		val inflater = menuInflater
+		inflater.inflate(R.menu.menu, menu)
+		return true
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		when (item.itemId) {
+			R.id.actionPosts -> {
+				// Open FeedActivity
+				val intent = Intent(this, FeedActivity::class.java)
+				startActivity(intent)
+				return true
+			}
+			R.id.actionProfile -> {
+				// Open ProfileActivity
+				val intent = Intent(this, ProfileActivity::class.java)
+				startActivity(intent)
+				return true
+			}
+			else -> return super.onOptionsItemSelected(item)
+		}
 	}
 }
