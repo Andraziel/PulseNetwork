@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 				val toast = Toast.makeText(applicationContext,"Fields can not be empty ! You're crazy...",
 					Toast.LENGTH_SHORT)
 				toast.show()
-			}else {
+			} else {
 				authent.signInWithEmailAndPassword(login, password)
 					.addOnCompleteListener(this) { task ->
 						if (task.isSuccessful) {
@@ -60,15 +60,12 @@ class MainActivity : AppCompatActivity() {
 							startActivity(intent)
 						} else {
 							Log.w("TAG", "signInWithEmail:failure", task.exception)
-
+							val toast = Toast.makeText(applicationContext,"Bad username or password",
+								Toast.LENGTH_SHORT)
+							toast.show()
 						}
 					}
 			}
-
-
 		}
-
 	}
-
-
 }
