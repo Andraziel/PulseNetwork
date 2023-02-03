@@ -80,7 +80,7 @@
         android:layout_marginTop="30dp"
         android:text="I agree to Pulse's data selling policy  "
         android:textColor="#FFFEFE"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newEmailInput" />

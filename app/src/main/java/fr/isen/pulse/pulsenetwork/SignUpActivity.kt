@@ -45,14 +45,14 @@ class SignUpActivity : AppCompatActivity() {
 			val inputFirstname = binding.SuFirstname.text.toString()
 			val inputLastname = binding.SuLastname.text.toString()
 			val inputSchoolName = binding.schoolSpinner.selectedItem.toString()
-
 			val inputEmail = binding.SuEmail.text.toString()
 			val inputPassword = binding.SuPassword.text.toString()
 
-
+			//Get instanc
 			val auth = FirebaseAuth.getInstance()
 
 			if(inputFirstname.isEmpty() || inputLastname.isEmpty() || inputEmail.isEmpty() || inputPassword.isEmpty()){
+				//Security on field
 				val toast = Toast.makeText(applicationContext,"Fields can not be empty ! You're crazy...",Toast.LENGTH_SHORT)
 				toast.show()
 			}else{
@@ -65,14 +65,15 @@ class SignUpActivity : AppCompatActivity() {
 							val database = Firebase.database("https://pulsenetwork-d6541-default-rtdb.europe-west1.firebasedatabase.app")
 							val myRef = database.getReference("pulse/users")
 							val id = userUid?.uid
+
+							//Send to database all information
 							val userInfo = UserInfo(userUid?.uid, inputFirstname, inputLastname, inputSchoolName)
 							id?.let {
 								myRef.child(it).setValue(userInfo)
 							}
 
-							// Sign in SUCCESSFUL, we now add user's information
+							// Sign in complete, start FeedActivity
 							Log.w("FB", "User registration SUCCESSFUL")
-
 							val intent = Intent(this, PostActivity::class.java)
 							startActivity(intent)
 
