@@ -7,7 +7,6 @@
     tools:context=".FeedActivity"
     android:background="@drawable/background_gradient">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/feedList"
         android:layout_width="0dp"
@@ -16,23 +15,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--<Button
-        android:id="@+id/buttonPost"
-        android:layout_width="70dp"
-        android:layout_height="0dp"
-        android:background="#00FFFFFF"
-        android:backgroundTint="#00A84D58"
-        android:padding="0dp"
-        android:textAlignment="center"
-        android:textColorHighlight="#00FFFFFF"
-        android:textColorHint="#00FFFFFF"
-        android:textColorLink="#00FFFFFF"
-        app:icon="@drawable/resource_new"
-        app:iconSize="70dp"
-        app:iconTint="@color/option"
-        tools:layout_editor_absoluteX="291dp"
-        tools:layout_editor_absoluteY="600dp" />-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -47,5 +29,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="50dp"
         app:srcCompat="@drawable/resource_new" />
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Feed"-->
+<!--        android:textColor="@color/option"-->
+<!--        android:textSize="30sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
