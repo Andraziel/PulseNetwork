@@ -257,7 +257,7 @@ class DetailActivity : AppCompatActivity() {
 		inflater.inflate(fr.isen.pulse.pulsenetwork.R.menu.menu, menu)
 		return true
 	}
-
+	
 	override fun onOptionsItemSelected(item: MenuItem): Boolean {
 		when (item.itemId) {
 			fr.isen.pulse.pulsenetwork.R.id.actionPosts -> {
