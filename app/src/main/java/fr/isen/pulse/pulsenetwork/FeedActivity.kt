@@ -61,14 +61,9 @@ class FeedActivity : AppCompatActivity() {
 
 		binding.feedList.adapter = FeedAdapter(value) {
 			val intent = Intent(this, DetailActivity::class.java)
-
 			intent.putExtra("post",it)
-
 			startActivity(intent)
 		}
-
-
-
 
 	}
 	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -88,4 +83,5 @@ class FeedActivity : AppCompatActivity() {
 			else -> return super.onOptionsItemSelected(item)
 		}
 	}
+
 }
