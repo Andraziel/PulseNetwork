@@ -116,7 +116,7 @@
                         android:drawablePadding="20dp"
                         android:elevation="3dp"
                         android:paddingStart="20dp"
-                        android:text="Change emai"
+                        android:text="Change email"
                         android:textAlignment="viewStart"
                         android:textSize="18sp"
                         android:textStyle="bold" />

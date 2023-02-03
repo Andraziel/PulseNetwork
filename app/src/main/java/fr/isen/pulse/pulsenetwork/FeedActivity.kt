@@ -37,7 +37,6 @@ class FeedActivity : AppCompatActivity() {
 				for (postSnapshot in snapshot.children) {
 					postSnapshot.getValue<Post>()?.let {
 						value.add(it)
-						Log.w("GGGGGGGGGGGGGGGG", "Value is: $value")
 					}
 				}
 				val adapter = binding.feedList.adapter as FeedAdapter
