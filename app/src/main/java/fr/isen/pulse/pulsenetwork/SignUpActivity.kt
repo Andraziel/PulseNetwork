@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -30,6 +31,13 @@ class SignUpActivity : AppCompatActivity() {
 		setContentView(R.layout.activity_main)
 		binding = ActivitySignUpBinding.inflate(layoutInflater)
 		setContentView(binding.root)
+
+		//Display list of schools
+		val schoolList = resources.getStringArray(R.array.schoolList)
+		val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, schoolList)
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+		binding.schoolSpinner.adapter = adapter
+
 
 		binding.SuValidateButton.setOnClickListener {
 			//Get all the field user has typed

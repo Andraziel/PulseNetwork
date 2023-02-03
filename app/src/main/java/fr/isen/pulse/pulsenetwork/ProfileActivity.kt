@@ -68,7 +68,7 @@ class ProfileActivity : AppCompatActivity() {
 			FirebaseAuth.getInstance().signOut()
 
 			Log.w("PN", "Sign out")
-			val intent = Intent(this, SignUpActivity::class.java)
+			val intent = Intent(this, MainActivity::class.java)
 			startActivity(intent)
 
 		}
