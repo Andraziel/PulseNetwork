@@ -16,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.classes.UserInfo
 import fr.isen.pulse.pulsenetwork.databinding.ActivityProfileBinding
-import fr.isen.pulse.pulsenetwork.databinding.ActivityResetMdpBinding
+
 import java.sql.Date
 import java.text.SimpleDateFormat
 
@@ -66,7 +66,7 @@ class ProfileActivity : AppCompatActivity() {
 
 		binding.profileChangeEmail.setOnClickListener(){
 			//Reset password
-			val intent = Intent(this, resetMailActivity::class.java)
+			val intent = Intent(this, ChangeMailActivity::class.java)
 			startActivity(intent)
 		}
 
