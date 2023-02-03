@@ -16,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import fr.isen.pulse.pulsenetwork.classes.Post
 import fr.isen.pulse.pulsenetwork.classes.UserInfo
 import fr.isen.pulse.pulsenetwork.databinding.ActivityProfileBinding
+import fr.isen.pulse.pulsenetwork.databinding.ActivityResetMdpBinding
 import java.sql.Date
 import java.text.SimpleDateFormat
 
@@ -62,6 +63,12 @@ class ProfileActivity : AppCompatActivity() {
 				Log.w("PN", "Failed to read value.", error.toException())
 			}
 		})
+
+		binding.profileResetPassword.setOnClickListener(){
+			//Reset password
+			val intent = Intent(this, resetMdp::class.java)
+			startActivity(intent)
+		}
 
 		binding.profileLogOut.setOnClickListener {
 			//Signout
