@@ -22,7 +22,7 @@ class ChangeMailActivity : AppCompatActivity() {
 
 
 
-        val nouvmail = binding.nouveau.text
+        val nouvmail = binding.nouv.text
 
         binding.change.setOnClickListener() {
 
